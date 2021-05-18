@@ -20,5 +20,5 @@ use Illuminate\Support\Facades\Route;
         return $request->user();
     });
     Route::group(['middleware' => 'auth:api' ], function () {
-        Route::post('logout', 'APILoginController@logout');
+        Route::get('logout', 'APILoginController@logout')->name('logout');
     });

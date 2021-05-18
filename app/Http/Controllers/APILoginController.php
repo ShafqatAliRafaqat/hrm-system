@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class APILoginController extends Controller {
 
+    use \App\Traits\WebServicesDoc;
     /**
      * Get a token via given credentials.
      *
@@ -42,9 +43,13 @@ class APILoginController extends Controller {
         
         if (auth()->attempt($credentials)) {
    
-            $token = auth()->user()->createToken('user')->accessToken;
-            return response()->json(['message'=>__('Logged in successfully'),'token' => $token,'user' => auth()->user()], 200);
-   
+            $oResponse['token'] = auth()->user()->createToken('user')->accessToken;
+            $oResponse['user'] = auth()->user();
+
+            $oResponse = responseBuilder()->success(__('Logged in successfully',["mod"=>"User"]), $oResponse, true);
+            $this->urlRec(0, 0, $oResponse);
+            return $oResponse;  
+            
         } else {
             abort(401,__('Invalid username or password.'));
         }
@@ -70,14 +75,20 @@ class APILoginController extends Controller {
             'password' => bcrypt($input['password'])
         ]);
 
-        $token = $user->createToken('user')->accessToken;
-        return response()->json(['token' => $token,'user' => $user], 200);
+        $oResponse['token'] = $user->createToken('user')->accessToken;
+        $oResponse['user'] = $user;
+        
+        $oResponse = responseBuilder()->success(__('User Created Successfully',["mod"=>"User"]), $oResponse, true);
+        $this->urlRec(0, 1, $oResponse);
+        return $oResponse;
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         $user = Auth::user()->token();
         $user->revoke();
-        return response()->json(['message' => __('Successfully logged out')], 200);; // modify as per your need
+        $oResponse = responseBuilder()->success(__('Successfully logged out'));
+        $this->urlRec(0, 2, $oResponse);
+        return $oResponse;
     }
 }
