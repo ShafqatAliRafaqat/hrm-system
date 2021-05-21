@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/user', function (Request $request) {
         return User::all();
     });
-    Route::middleware(['cors'])->group(function () {
-        Route::POST('login', 'APILoginController@login');
-    });
+    Route::POST('login', 'APILoginController@login');
     Route::group(['middleware' => 'auth:api' ], function () {
         Route::get('logout', 'APILoginController@logout')->name('logout');
     });
