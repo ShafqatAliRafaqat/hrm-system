@@ -17,6 +17,7 @@ class CreateModificationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name',50);
             $table->string('ar_name',50);
+            $table->unsignedTinyInteger('flag')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

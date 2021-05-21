@@ -17,8 +17,10 @@ class CreateCostCentersTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name',50);
             $table->string('ar_name',50);
-            $table->integer('cc')->default(0);
+            $table->integer('storecc')->default(0);
+            $table->integer('status')->default(0);
             $table->unsignedTinyInteger('is_active')->default(0);
+            $table->unsignedTinyInteger('update_status')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

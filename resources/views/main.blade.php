@@ -20,12 +20,12 @@
             
         </div>
     </body>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             var url = "https://www.backend.injazatsaasapps.com/api/login";
             $.post(url,{"_token": "{{ csrf_token() }}","email":"abraham95@example.org","password":"password"}, function (data) {
                 console.log({data});
             });
         });
-    </script>
+    </script> -->
 </html>

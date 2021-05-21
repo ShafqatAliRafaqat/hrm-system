@@ -17,7 +17,9 @@ class CreateEvaluationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name',50);
             $table->string('ar_name',50);
-            $table->unsignedBigInteger('group');
+            $table->unsignedBigInteger('group')->nullable();
+            $table->unsignedBigInteger('eval_cycle')->nullable();
+            $table->unsignedBigInteger('max_mark')->nullable();
             $table->timestamps();
             $table->softdeletes();
         });

@@ -17,7 +17,9 @@ class CreateCitiesTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name',50);
             $table->string('ar_name',50);
+            $table->string('region',50);
             $table->float('ticket_value',7,2);
+            $table->unsignedTinyInteger('update_status')->default(0);
             $table->interger('country_id')->unsigned();
             $table->timestamps();
             $table->softdeletes();

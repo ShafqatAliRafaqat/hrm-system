@@ -18,6 +18,8 @@ class CreateSponsorsTable extends Migration
             $table->string('sponsor',50);
             $table->string('en_name',50);
             $table->string('ar_name',50);
+            $table->string('en_contact_person',50);
+            $table->string('ar_contact_person',50);
             $table->string('address',250);
             $table->string('telephone',250);
             $table->unsignedTinyInteger('is_active')->default(0);

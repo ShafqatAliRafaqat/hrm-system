@@ -17,10 +17,13 @@ class CreateDeductionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name',50);
             $table->string('ar_name',50);
-            $table->string('credit_card',50);
+            $table->string('credit_glid',50);
+            $table->string('parentdeduction',50);
+            $table->unsignedTinyInteger('modifyflag')->default(0);
             $table->unsignedTinyInteger('is_request')->default(0);
             $table->unsignedTinyInteger('is_fixed')->default(0);
             $table->unsignedTinyInteger('is_mb')->default(0);
+            $table->unsignedTinyInteger('printable')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

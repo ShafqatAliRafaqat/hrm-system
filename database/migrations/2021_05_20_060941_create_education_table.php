@@ -17,6 +17,7 @@ class CreateEducationTable extends Migration
             $table->bigIncrements('id');
             $table->string('en_name',50);
             $table->string('ar_name',50);
+            $table->string('educ_remark',50)->nullable();
             $table->unsignedTinyInteger('is_sponsored')->default(0);
             $table->timestamps();
             $table->softdeletes();

@@ -18,9 +18,10 @@ class CreateDocumentTypesTable extends Migration
             $table->string('en_name',50);
             $table->string('ar_name',50);
             $table->date('exp_date');
-            $table->unsignedTinyInteger('in_hijri')->default(0);
-            $table->unsignedTinyInteger('is_renewable')->default(0);
-            $table->unsignedTinyInteger('is_company')->default(0);
+            $table->unsignedTinyInteger('hijriflag')->default(0);
+            $table->unsignedTinyInteger('renew_flag')->default(0);
+            $table->unsignedTinyInteger('co_flag')->default(0);
+            $table->unsignedTinyInteger('substitution')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });
