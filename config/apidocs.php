@@ -15,7 +15,9 @@ return [
             'menu' =>  [
                 'Admin Login',                      //0
                 'Registration',                     //1
-                'Admin Logout',                      //2
+                'Admin Logout',                     //2
+                'Delete User',                      //3
+                'All Users',                        //4
             ],
         ],
 ];

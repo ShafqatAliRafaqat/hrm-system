@@ -25,7 +25,7 @@ class APILoginController extends Controller {
         ]);
 
         if($validator->fails()){
-            abort(400,$validator->errors()->first());
+            return responseBuilder()->error(__($validator->errors()->first()), 400, false);
         }
 
         $credentials = request(['email', 'password']);
@@ -33,12 +33,12 @@ class APILoginController extends Controller {
         $user = User::where('email',$credentials['email'])->first();
 
         if(!$user){
-            abort(401,__('Invalid username or password.'));
+            return responseBuilder()->error(__('Invalid username or password.'), 404, false);
         }
 
 
         if (!Hash::check($credentials['password'], $user->password)) {
-            abort(401,__('Invalid username or password.'));
+            return responseBuilder()->error(__('Invalid username or password.'), 404, false);
         }
         
         if (auth()->attempt($credentials)) {
@@ -51,7 +51,7 @@ class APILoginController extends Controller {
             return $oResponse;  
             
         } else {
-            abort(401,__('Invalid username or password.'));
+            return responseBuilder()->error(__('Invalid username or password.'), 404, false);
         }
     }
 
@@ -66,7 +66,7 @@ class APILoginController extends Controller {
         ]);
 
         if($validator->fails()){
-            abort(400,$validator->errors()->first());
+            return responseBuilder()->error(__($validator->errors()->first()), 400, false);
         }
 
         $user = User::create([
@@ -89,6 +89,21 @@ class APILoginController extends Controller {
         $user->revoke();
         $oResponse = responseBuilder()->success(__('Successfully logged out'));
         $this->urlRec(0, 2, $oResponse);
+        return $oResponse;
+    }
+    public function deleteUser($id)
+    {
+        $user = User::findOrFail($id)->delete();
+        $oResponse = responseBuilder()->success(__('User Deleted Successfully.'));
+        $this->urlRec(0, 3, $oResponse);
+        return $oResponse;
+    }
+    public function allUsers()
+    {
+        $users = User::all();
+        $oResponse['users'] = $users;
+        $oResponse = responseBuilder()->success(__('All User'), $oResponse, true);
+        $this->urlRec(0, 4, $oResponse);
         return $oResponse;
     }
 }

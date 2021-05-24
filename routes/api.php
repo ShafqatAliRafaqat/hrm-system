@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 
     
     Route::post('register', 'APILoginController@register');
+    Route::get('all_users', 'APILoginController@allUsers');
     Route::get('/user', function (Request $request) {
         return User::all();
     });
     Route::POST('login', 'APILoginController@login');
     Route::group(['middleware' => 'auth:api' ], function () {
         Route::get('logout', 'APILoginController@logout')->name('logout');
+        Route::delete('delete_user/{id}', 'APILoginController@deleteUser');
     });
