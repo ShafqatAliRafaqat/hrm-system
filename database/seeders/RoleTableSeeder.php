@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +21,6 @@ class RoleTableSeeder extends Seeder
         );
         foreach ($aRoles as $role) {
             Role::create($role);
-          }
+        }
     }
 }

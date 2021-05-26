@@ -15,6 +15,7 @@ class CreateCompanySchedulesTable extends Migration
     {
         Schema::create('company_schedules', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('company_id')->unsigned();
             $table->string('en_description',50);
             $table->string('ar_description',50);
             $table->date('date_from');
@@ -26,6 +27,8 @@ class CreateCompanySchedulesTable extends Migration
             $table->unsignedTinyInteger('paid_overtime')->default(0);
             $table->timestamps();
             $table->softdeletes();
+            $table->foreign('company_id')->references('id')->on('companies');
+
         });
     }
 

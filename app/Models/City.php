@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class City extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $guarded = ['id'];
+    
+    public function countryId(){
+        return $this->belongsTo('App\Models\Country');
+    }
 }
