@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Role extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $guarded = ['id'];
+    
+    public function user(){
+        return $this->hasMany('App\Models\User','role_id', 'id');
+    }
 }

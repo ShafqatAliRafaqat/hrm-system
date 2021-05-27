@@ -15,7 +15,7 @@ class CreateGregHijriActualsTable extends Migration
     {
         Schema::create('greg_hijri_actuals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('hirji_date');
+            $table->date('hijri_date');
             $table->string('internal_date');
             $table->date('greg_date');
             $table->timestamps();

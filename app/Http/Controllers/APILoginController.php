@@ -30,7 +30,7 @@ class APILoginController extends Controller {
 
         $credentials = request(['email', 'password']);
 
-        $user = User::where('email',$credentials['email'])->first();
+        $user = User::with('roleId')->where('email',$credentials['email'])->first();
 
         if(!$user){
             return responseBuilder()->error(__('Invalid username or password.'), 404, false);
@@ -62,6 +62,7 @@ class APILoginController extends Controller {
         $validator = Validator::make($input,[
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
+            'role_id' => 'required|exists:roles,id',
             'password' => 'required|string|min:6'
         ]);
 
@@ -72,11 +73,12 @@ class APILoginController extends Controller {
         $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'role_id' => $input['role_id'],
             'password' => bcrypt($input['password'])
         ]);
-
+        $users = User::with('roleId')->where('id',$user->id)->first();
         $oResponse['token'] = $user->createToken('user')->accessToken;
-        $oResponse['user'] = $user;
+        $oResponse['user'] = $users;
         
         $oResponse = responseBuilder()->success(__('User Created Successfully',["mod"=>"User"]), $oResponse, true);
         $this->urlRec(0, 1, $oResponse);
@@ -100,7 +102,7 @@ class APILoginController extends Controller {
     }
     public function allUsers()
     {
-        $users = User::all();
+        $users = User::with('roleId')->get();
         $oResponse['users'] = $users;
         $oResponse = responseBuilder()->success(__('All User'), $oResponse, true);
         $this->urlRec(0, 4, $oResponse);

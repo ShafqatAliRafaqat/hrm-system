@@ -20,4 +20,29 @@ return [
                 'All Users',                        //4
             ],
         ],
+    1 =>[   'title'=>"Country",
+        'menu' =>  [
+            'All Countries',                       //0
+            'Create Country',                      //1
+            'Show Country detail',                 //2
+            'Update Country',                      //3
+            'Delete Countries',                    //4
+            'Deleted Countries',                   //5
+            'Restore Countries',                   //6
+            'Permanent Delete Country',            //7
+            'List if Countries',                   //8
+        ],
+    ],
+    2 =>[   'title'=>"City",
+        'menu' =>  [
+            'All Cities',                       //0
+            'Create City',                      //1
+            'Show City detail',                 //2
+            'Update City',                      //3
+            'Delete Citys',                     //4
+            'Deleted Citys',                    //5
+            'Restore Citys',                    //6
+            'Permanent Delete City',            //7
+        ],
+    ],
 ];
