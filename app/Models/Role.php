@@ -14,4 +14,13 @@ class Role extends Model
     public function user(){
         return $this->hasMany('App\Models\User','role_id', 'id');
     }
+    public function createdBy(){
+        return $this->belongsTo('App\Models\User','created_by','id')->select('id','name','email');
+    }
+    public function updatedBy(){
+        return $this->belongsTo('App\Models\User','updated_by','id')->select('id','name','email');
+    }
+    public function deletedBy(){
+        return $this->belongsTo('App\Models\User','deleted_by','id')->select('id','name','email');
+    }
 }

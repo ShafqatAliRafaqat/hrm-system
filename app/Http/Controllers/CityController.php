@@ -28,7 +28,7 @@ class CityController extends Controller
         $oQb = QB::where($oInput,"ticket_value",$oQb);
         $oQb = QB::where($oInput,"country_id",$oQb);
         
-        $oCities = $oQb->get();
+        $oCities = $oQb->paginate(10);
         
         $oResponse = responseBuilder()->success(__('message.city.list'), $oCities, false);
         $this->urlRec(2, 0, $oResponse);
@@ -44,8 +44,8 @@ class CityController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'region'    => 'required',
-            'ticket_value'=> 'required',
+            'region'    => 'required|max:50',
+            'ticket_value'=> 'required|numeric|max:5|min:0',
             'country_id' => 'required|exists:countries,id',
         ]);
 
@@ -89,8 +89,8 @@ class CityController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'region'    => 'required',
-            'ticket_value'=> 'required',
+            'region'    => 'required|max:50',
+            'ticket_value'=> 'required|numeric|max:5|min:0',
             'country_id' => 'required|exists:countries,id',
         ]);
 
@@ -144,7 +144,7 @@ class CityController extends Controller
     }
 
     // Get soft deleted data
-    public function deletedCity()
+    public function deleted()
     {
         $oCity = City::onlyTrashed()->with(['countryId'])->paginate(10);
         
@@ -153,7 +153,7 @@ class CityController extends Controller
         return $oResponse;
     }
     // Restore any deleted data
-    public function restoreCity(Request $request)
+    public function restore(Request $request)
     {
         $oInput = $request->all();
         $oValidator = Validator::make($oInput,[
@@ -180,7 +180,7 @@ class CityController extends Controller
         return $oResponse;
     }
     // Permanent Delete
-    public function deleteCity($id)
+    public function delete($id)
     {
         $oCity = City::onlyTrashed()->with(['countryId'])->findOrFail($id);
         

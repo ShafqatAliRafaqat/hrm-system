@@ -19,7 +19,7 @@ class CreateCountriesTable extends Migration
             $table->string('ar_name',50)->nullable();
             $table->string('en_nationality',50)->nullable();
             $table->string('ar_nationality',50)->nullable();
-            $table->string('code',3)->unique()->nullable();
+            $table->string('code',3)->nullable();
             $table->string('numcode',3)->nullable();
             $table->string('phonecode',4)->nullable();
             $table->timestamps();

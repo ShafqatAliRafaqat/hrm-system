@@ -5,7 +5,23 @@ return [
     'logout.success.message' => 'Successfully logged out',
     'login.error.message' => 'Invalid username or password.',
     'login.success.message' => 'Logged in successfully',
-    
+    'general' => [
+        'exception' => 'Unexpcted error found, please try again.',
+        'validation_fail' => 'Validation on user input data failed.',
+        'create' => ':mod created successfully.',
+        'update' => ':mod updated successfully.',
+        'delete' => ':mod deleted successfully.',
+        'reschedule' => ':mod Rescheduled successfully.',
+        'followOn' => ':mod added as Follow up successfully.',
+        'list'   => 'List of all :mod',
+        'detail' => ':mod detail',
+        'deleted' => 'List of deleted :mod',
+        'restore' => ':mod restored successfully.',
+        'permanentDelete' => ':mod deleted permanently successfully.',
+        'already' => 'The :mod has already been taken.',
+        'notFind' => 'Sorry, We did not find your record.'
+    ],
+
     'city'=> [
         'create' => 'City created successfully.',
         'update' => 'City updated successfully.',

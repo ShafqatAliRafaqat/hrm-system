@@ -6,6 +6,7 @@ use App\Models\Country;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Helpers\QB;
+use DB;
 use Illuminate\Support\Facades\Validator;
 
 class CountryController extends Controller
@@ -18,7 +19,7 @@ class CountryController extends Controller
     {
         $oInput = $request->all();
 
-        $oQb = Country::with(['city']);
+        $oQb = Country::orderByDesc('updated_at');
         $oQb = QB::where($oInput,"id",$oQb);
         $oQb = QB::whereLike($oInput,"en_name",$oQb);
         $oQb = QB::whereLike($oInput,"ar_name",$oQb);
@@ -28,7 +29,7 @@ class CountryController extends Controller
         $oQb = QB::whereLike($oInput,"numcode",$oQb);
         $oQb = QB::whereLike($oInput,"phonecode",$oQb);
         
-        $oCountries = $oQb->get();
+        $oCountries = $oQb->paginate(10);
         
         $oResponse = responseBuilder()->success(__('message.country.list'), $oCountries, false);
         $this->urlRec(1, 0, $oResponse);
@@ -45,14 +46,15 @@ class CountryController extends Controller
             'ar_name'   => 'required|max:50',
             'en_nationality'   => 'required|max:50',
             'ar_nationality'   => 'required|max:50',
-            'code'   => 'required',
-            'phonecode'=> 'required',
+            'code'   => 'required|max:3',
+            'phonecode'=> 'required|max:3',
         ]);
 
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-
+        $oCountry = Country::orderByDesc('updated_at')->pluck('id')->first();
+        
         $oCountry = Country::create([
             'en_name'           =>  $oInput['en_name'],
             'ar_name'           =>  $oInput['ar_name'],
@@ -92,8 +94,8 @@ class CountryController extends Controller
             'ar_name'   => 'required|max:50',
             'en_nationality'   => 'required|max:50',
             'ar_nationality'   => 'required|max:50',
-            'code'   => 'required',
-            'phonecode'=> 'required',
+            'code'   => 'required|max:3',
+            'phonecode'=> 'required|max:3',
         ]);
 
         if($oValidator->fails()){
@@ -150,7 +152,7 @@ class CountryController extends Controller
     }
 
     // Get soft deleted data
-    public function deletedCountry()
+    public function deleted()
     {
         $oCountry = Country::onlyTrashed()->with(['city'])->paginate(10);
         
@@ -159,7 +161,7 @@ class CountryController extends Controller
         return $oResponse;
     }
     // Restore any deleted data
-    public function restoreCountry(Request $request)
+    public function restore(Request $request)
     {
         $oInput = $request->all();
         $oValidator = Validator::make($oInput,[
@@ -186,7 +188,7 @@ class CountryController extends Controller
         return $oResponse;
     }
     // Permanent Delete
-    public function deleteCountry($id)
+    public function delete($id)
     {
         $oCountry = Country::onlyTrashed()->with(['city'])->findOrFail($id);
         

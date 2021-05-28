@@ -36,10 +36,18 @@ use Illuminate\Support\Facades\Route;
         Route::delete('permanent_delete_country/{id}',  'CountryController@delete');
 
         // City
-        Route::resource('cities',  'CountryController');
-        Route::post('delete_cities',  'CountryController@destroy');
-        Route::post('city/{id}',  'CountryController@update');
-        Route::get('deleted_cities',  'CountryController@deleted');
-        Route::post('restore_cities',  'CountryController@restore');
-        Route::delete('permanent_delete_city/{id}',  'CountryController@delete');
+        Route::resource('cities',  'CityController');
+        Route::post('delete_cities',  'CityController@destroy');
+        Route::post('city/{id}',  'CityController@update');
+        Route::get('deleted_cities',  'CityController@deleted');
+        Route::post('restore_cities',  'CityController@restore');
+        Route::delete('permanent_delete_city/{id}',  'CityController@delete');
+
+        // Role
+        Route::resource('roles',  'RoleController');
+        Route::post('delete_roles',  'RoleController@destroy');
+        Route::post('role/{id}',  'RoleController@update');
+        Route::get('deleted_roles',  'RoleController@deleted');
+        Route::post('restore_roles',  'RoleController@restore');
+        Route::delete('permanent_delete_role/{id}',  'RoleController@delete');
     });

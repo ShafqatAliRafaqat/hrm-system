@@ -42,4 +42,13 @@ class User extends Authenticatable
     public function roleId(){
         return $this->belongsTo('App\Models\Role','role_id','id');
     }
+    public function createdby(){
+        return $this->hasOne('App\Models\User', 'id', 'created_by')->select('id','name','email');
+    }
+    public function deletedBy(){
+        return $this->hasOne('App\Models\User', 'id', 'deleted_by')->select('id','name','email');
+    }
+    public function updatedby(){
+        return $this->hasOne('App\Models\User', 'id', 'updated_by')->select('id','name','email');
+    }
 }

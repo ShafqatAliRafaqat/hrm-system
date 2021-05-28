@@ -12,6 +12,6 @@ class City extends Model
     protected $guarded = ['id'];
     
     public function countryId(){
-        return $this->belongsTo('App\Models\Country');
+        return $this->belongsTo('App\Models\Country','country_id','id');
     }
 }
