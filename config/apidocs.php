@@ -60,4 +60,17 @@ return [
                 'Permissions assigned to role',    //8
         ],
     ],
+    4 =>[   'title'=>"Religions",
+        'menu' =>  [
+                'All religions',                       //0
+                'Create religions',                    //1
+                'Show religions detail',               //2
+                'Update religions',                    //3
+                'Delete religions',                    //4
+                'Deleted religions',                   //5
+                'Restore religion',                    //6
+                'Permanent Delete religion',           //7
+                'Permissions assigned to religion',    //8
+        ],
+    ],
 ];

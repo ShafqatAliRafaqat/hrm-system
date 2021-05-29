@@ -50,4 +50,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_roles',  'RoleController@deleted');
         Route::post('restore_roles',  'RoleController@restore');
         Route::delete('permanent_delete_role/{id}',  'RoleController@delete');
+
+        // Religion
+        Route::resource('religions',  'ReligionController');
+        Route::post('delete_religions',  'ReligionController@destroy');
+        Route::post('religion/{id}',  'ReligionController@update');
+        Route::get('deleted_religions',  'ReligionController@deleted');
+        Route::post('restore_religions',  'ReligionController@restore');
+        Route::delete('permanent_delete_religion/{id}',  'ReligionController@delete');
     });

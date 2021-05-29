@@ -9,4 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CompanySchedule extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $guarded = ['id'];
 }
