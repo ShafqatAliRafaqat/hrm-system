@@ -58,4 +58,36 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_religions',  'ReligionController@deleted');
         Route::post('restore_religions',  'ReligionController@restore');
         Route::delete('permanent_delete_religion/{id}',  'ReligionController@delete');
+
+        // Currency
+        Route::resource('currencies',  'CurrencyTypeController');
+        Route::post('delete_currencies',  'CurrencyTypeController@destroy');
+        Route::post('currency/{id}',  'CurrencyTypeController@update');
+        Route::get('deleted_currencies',  'CurrencyTypeController@deleted');
+        Route::post('restore_currencies',  'CurrencyTypeController@restore');
+        Route::delete('permanent_delete_currency/{id}',  'CurrencyTypeController@delete');
+
+        // Designations
+        Route::resource('designations',  'DesignationController');
+        Route::post('delete_designations',  'DesignationController@destroy');
+        Route::post('designation/{id}',  'DesignationController@update');
+        Route::get('deleted_designations',  'DesignationController@deleted');
+        Route::post('restore_designations',  'DesignationController@restore');
+        Route::delete('permanent_delete_designation/{id}',  'DesignationController@delete');
+    
+        //evaluations
+        Route::resource('evaluations',  'EvaluationController');
+        Route::post('delete_evaluations',  'EvaluationController@destroy');
+        Route::post('evaluation/{id}',  'EvaluationController@update');
+        Route::get('deleted_evaluations',  'EvaluationController@deleted');
+        Route::post('restore_evaluations',  'EvaluationController@restore');
+        Route::delete('permanent_delete_evaluation/{id}',  'EvaluationController@delete');
+
+        //Educations
+        Route::resource('educations',  'EducationController');
+        Route::post('delete_educations',  'EducationController@destroy');
+        Route::post('education/{id}',  'EducationController@update');
+        Route::get('deleted_educations',  'EducationController@deleted');
+        Route::post('restore_educations',  'EducationController@restore');
+        Route::delete('permanent_delete_education/{id}',  'EducationController@delete');
     });

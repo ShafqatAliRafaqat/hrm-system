@@ -70,7 +70,54 @@ return [
                 'Deleted religions',                   //5
                 'Restore religion',                    //6
                 'Permanent Delete religion',           //7
-                'Permissions assigned to religion',    //8
+        ],
+    ],
+    5 =>[   'title'=>"Currency",
+        'menu' =>  [
+                'All Currencies',                       //0
+                'Create Currency',                    //1
+                'Show Currency detail',               //2
+                'Update Currency',                    //3
+                'Delete Currencies',                    //4
+                'Deleted Currencies',                   //5
+                'Restore Currencies',                    //6
+                'Permanent Delete Currency',           //7
+        ],
+    ],
+    6 =>[   'title'=>"Designation",
+        'menu' =>  [
+                'All Designations',                       //0
+                'Create Designation',                    //1
+                'Show Designation detail',               //2
+                'Update Designation',                    //3
+                'Delete Designations',                    //4
+                'Deleted Designations',                   //5
+                'Restore Designations',                    //6
+                'Permanent Delete Designation',           //7
+        ],
+    ],
+    7 =>[   'title'=>"Evaluation",
+        'menu' =>  [
+                'All Evaluations',                       //0
+                'Create Evaluation',                    //1
+                'Show Evaluation detail',               //2
+                'Update Evaluation',                    //3
+                'Delete Evaluations',                    //4
+                'Deleted Evaluations',                   //5
+                'Restore Evaluations',                    //6
+                'Permanent Delete Evaluation',           //7
+        ],
+    ],
+    8 =>[   'title'=>"Education",
+        'menu' =>  [
+                'All Educations',                       //0
+                'Create Education',                    //1
+                'Show Education detail',               //2
+                'Update Education',                    //3
+                'Delete Educations',                    //4
+                'Deleted Educations',                   //5
+                'Restore Educations',                    //6
+                'Permanent Delete Education',           //7
         ],
     ],
 ];
