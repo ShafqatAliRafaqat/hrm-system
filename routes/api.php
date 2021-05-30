@@ -90,4 +90,37 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_educations',  'EducationController@deleted');
         Route::post('restore_educations',  'EducationController@restore');
         Route::delete('permanent_delete_education/{id}',  'EducationController@delete');
+
+        //Documents
+        Route::resource('documents',  'DocumentTypeController');
+        Route::post('delete_documents',  'DocumentTypeController@destroy');
+        Route::post('document/{id}',  'DocumentTypeController@update');
+        Route::get('deleted_documents',  'DocumentTypeController@deleted');
+        Route::post('restore_documents',  'DocumentTypeController@restore');
+        Route::delete('permanent_delete_document/{id}',  'DocumentTypeController@delete');
+
+        //evaluation types
+        Route::resource('evaluation_types',  'EvaluationTypeController');
+        Route::post('delete_evaluation_types',  'EvaluationTypeController@destroy');
+        Route::post('evaluation_type/{id}',  'EvaluationTypeController@update');
+        Route::get('deleted_evaluation_types',  'EvaluationTypeController@deleted');
+        Route::post('restore_evaluation_types',  'EvaluationTypeController@restore');
+        Route::delete('permanent_delete_evaluation_type/{id}',  'EvaluationTypeController@delete');
+
+        //Beneficiary types
+        Route::resource('beneficiary_types',  'BeneficiaryTypeController');
+        Route::post('delete_beneficiary_types',  'BeneficiaryTypeController@destroy');
+        Route::post('beneficiary_type/{id}',  'BeneficiaryTypeController@update');
+        Route::get('deleted_beneficiary_types',  'BeneficiaryTypeController@deleted');
+        Route::post('restore_beneficiary_types',  'BeneficiaryTypeController@restore');
+        Route::delete('permanent_delete_beneficiary_type/{id}',  'BeneficiaryTypeController@delete');
+
+        //Leaves
+        Route::resource('leaves',  'LeaveController');
+        Route::post('delete_leaves',  'LeaveController@destroy');
+        Route::post('leave/{id}',  'LeaveController@update');
+        Route::get('deleted_leaves',  'LeaveController@deleted');
+        Route::post('restore_leaves',  'LeaveController@restore');
+        Route::delete('permanent_delete_leave/{id}',  'LeaveController@delete');
+
     });

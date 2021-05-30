@@ -120,4 +120,52 @@ return [
                 'Permanent Delete Education',           //7
         ],
     ],
+    9 =>[   'title'=>"Documnets",
+        'menu' =>  [
+                'All Documnets',                       //0
+                'Create Documnet',                    //1
+                'Show Documnet detail',               //2
+                'Update Documnet',                    //3
+                'Delete Documnets',                    //4
+                'Deleted Documnets',                   //5
+                'Restore Documnets',                    //6
+                'Permanent Delete Documnet',           //7
+        ],
+    ],
+    10 =>[   'title'=>"Evaluation Type",
+        'menu' =>  [
+                'All Evaluation Types',                       //0
+                'Create Evaluation Type',                    //1
+                'Show Evaluation Type detail',               //2
+                'Update Evaluation Type',                    //3
+                'Delete Evaluation Types',                    //4
+                'Deleted Evaluation Types',                   //5
+                'Restore Evaluation Types',                    //6
+                'Permanent Delete Evaluation Type',           //7
+        ],
+    ],
+    11 =>[   'title'=>"Beneficiary Type",
+        'menu' =>  [
+                'All Beneficiary Types',                       //0
+                'Create Beneficiary Type',                    //1
+                'Show Beneficiary Type detail',               //2
+                'Update Beneficiary Type',                    //3
+                'Delete Beneficiary Types',                    //4
+                'Deleted Beneficiary Types',                   //5
+                'Restore Beneficiary Types',                    //6
+                'Permanent Delete Beneficiary Type',           //7
+        ],
+    ],
+    12 =>[   'title'=>"Leaves",
+        'menu' =>  [
+                'All Leaves',                       //0
+                'Create Leave',                    //1
+                'Show Leave detail',               //2
+                'Update Leave',                    //3
+                'Delete Leaves',                    //4
+                'Deleted Leaves',                   //5
+                'Restore Leaves',                    //6
+                'Permanent Delete Leave',           //7
+        ],
+    ],
 ];

@@ -22,7 +22,14 @@ class QB
 
         return $qb;
     }
+    public static function whereDate($input, $param, $qb) {
 
+        if (self::applyFilter($input, $param)) {
+            $qb->whereDate($param,'=',date($input[$param]));
+        }
+
+        return $qb;
+    }
     public static function whereLike($input, $param, $qb)
     {
 
