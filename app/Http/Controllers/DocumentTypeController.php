@@ -46,9 +46,10 @@ class DocumentTypeController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'date'      => 'required|date',
+            'exp_date'  => 'required|date',
             'hijriflag'=> 'required|in:0,1',
             'co_flag'  => 'required|in:0,1',
+            'renew_flag'  => 'required|in:0,1',
             'substitution'=> 'required|in:0,1',
         ]);
 
@@ -59,9 +60,10 @@ class DocumentTypeController extends Controller
         $oDocument = Document::create([
             'en_name'       =>  $oInput['en_name'],
             'ar_name'       =>  $oInput['ar_name'],
-            'date'          =>  $oInput['date'],
+            'exp_date'      =>  $oInput['exp_date'],
             'hijriflag'     =>  $oInput['hijriflag'],
             'co_flag'       =>  $oInput['co_flag'],
+            'renew_flag'    =>  $oInput['renew_flag'],
             'substitution'  =>  $oInput['substitution'],
             'created_at'    =>  Carbon::now()->toDateTimeString(),
             'updated_at'    =>  Carbon::now()->toDateTimeString(),
@@ -95,10 +97,11 @@ class DocumentTypeController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'date'      => 'required|date',
-            'hijriflag' => 'required|in:0,1',
-            'co_flag'   => 'required|in:0,1',
-            'substitution'  => 'required|in:0,1',
+            'exp_date'  => 'required|date',
+            'hijriflag'=> 'required|in:0,1',
+            'co_flag'  => 'required|in:0,1',
+            'renew_flag'  => 'required|in:0,1',
+            'substitution'=> 'required|in:0,1',
         ]);
 
         if($oValidator->fails()){
@@ -109,9 +112,10 @@ class DocumentTypeController extends Controller
         $oDocuments = $oDocument->update([
             'en_name'       =>  $oInput['en_name'],
             'ar_name'       =>  $oInput['ar_name'],
-            'date'          =>  $oInput['date'],
+            'exp_date'      =>  $oInput['exp_date'],
             'hijriflag'     =>  $oInput['hijriflag'],
             'co_flag'       =>  $oInput['co_flag'],
+            'renew_flag'    =>  $oInput['renew_flag'],
             'substitution'  =>  $oInput['substitution'],
             'updated_at'    =>  Carbon::now()->toDateTimeString(),
         ]);

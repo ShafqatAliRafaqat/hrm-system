@@ -44,10 +44,10 @@ class SessionController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'begin'     => 'required|time',
-            'cin'       => 'required|time',
-            'cout'      => 'required|time',
-            'end'       => 'required|time',
+            'begin'     => 'required|date_format:H:i',
+            'cin'       => 'required|date_format:H:i',
+            'cout'      => 'required|date_format:H:i',
+            'end'       => 'required|date_format:H:i',
         ]);
 
         if($oValidator->fails()){
