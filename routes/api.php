@@ -123,4 +123,68 @@ use Illuminate\Support\Facades\Route;
         Route::post('restore_leaves',  'LeaveController@restore');
         Route::delete('permanent_delete_leave/{id}',  'LeaveController@delete');
 
+        //Sponsors
+        Route::resource('sponsors',  'SponsorController');
+        Route::post('delete_sponsors',  'SponsorController@destroy');
+        Route::post('sponsor/{id}',  'SponsorController@update');
+        Route::get('deleted_sponsors',  'SponsorController@deleted');
+        Route::post('restore_sponsors',  'SponsorController@restore');
+        Route::delete('permanent_delete_sponsor/{id}',  'SponsorController@delete');
+
+        //Earnings
+        Route::resource('earnings',  'EarningController');
+        Route::post('delete_earnings',  'EarningController@destroy');
+        Route::post('earning/{id}',  'EarningController@update');
+        Route::get('deleted_earnings',  'EarningController@deleted');
+        Route::post('restore_earnings',  'EarningController@restore');
+        Route::delete('permanent_delete_earning/{id}',  'EarningController@delete');
+
+        //Deductions
+        Route::resource('deductions',  'DeductionController');
+        Route::post('delete_deductions',  'DeductionController@destroy');
+        Route::post('deduction/{id}',  'DeductionController@update');
+        Route::get('deleted_deductions',  'DeductionController@deleted');
+        Route::post('restore_deductions',  'DeductionController@restore');
+        Route::delete('permanent_delete_deduction/{id}',  'DeductionController@delete');
+
+        //Modifications
+        Route::resource('modifications',  'ModificationController');
+        Route::post('delete_modifications',  'ModificationController@destroy');
+        Route::post('modification/{id}',  'ModificationController@update');
+        Route::get('deleted_modifications',  'ModificationController@deleted');
+        Route::post('restore_modifications',  'ModificationController@restore');
+        Route::delete('permanent_delete_modification/{id}',  'ModificationController@delete');
+
+        //Sections
+        Route::resource('sections',  'SectionController');
+        Route::post('delete_sections',  'SectionController@destroy');
+        Route::post('section/{id}',  'SectionController@update');
+        Route::get('deleted_sections',  'SectionController@deleted');
+        Route::post('restore_sections',  'SectionController@restore');
+        Route::delete('permanent_delete_section/{id}',  'SectionController@delete');
+
+        //Cost Centers
+        Route::resource('cost_centers',  'CostCenterController');
+        Route::post('delete_cost_centers',  'CostCenterController@destroy');
+        Route::post('cost_center/{id}',  'CostCenterController@update');
+        Route::get('deleted_cost_centers',  'CostCenterController@deleted');
+        Route::post('restore_cost_centers',  'CostCenterController@restore');
+        Route::delete('permanent_delete_cost_center/{id}',  'CostCenterController@delete');
+
+        //Percentage
+        Route::resource('percentages',  'PercentageController');
+        Route::post('delete_percentages',  'PercentageController@destroy');
+        Route::post('percentage/{id}',  'PercentageController@update');
+        Route::get('deleted_percentages',  'PercentageController@deleted');
+        Route::post('restore_percentages',  'PercentageController@restore');
+        Route::delete('permanent_delete_percentage/{id}',  'PercentageController@delete');
+
+        //Session
+        Route::resource('sessions',  'SessionController');
+        Route::post('delete_sessions',  'SessionController@destroy');
+        Route::post('session/{id}',  'SessionController@update');
+        Route::get('deleted_sessions',  'SessionController@deleted');
+        Route::post('restore_sessions',  'SessionController@restore');
+        Route::delete('permanent_delete_session/{id}',  'SessionController@delete');
+
     });

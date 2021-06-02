@@ -168,4 +168,100 @@ return [
                 'Permanent Delete Leave',           //7
         ],
     ],
+    13 =>[   'title'=>"Sponsors",
+        'menu' =>  [
+                'All Sponsors',                       //0
+                'Create Sponsor',                    //1
+                'Show Sponsor detail',               //2
+                'Update Sponsor',                    //3
+                'Delete Sponsors',                    //4
+                'Deleted Sponsors',                   //5
+                'Restore Sponsors',                    //6
+                'Permanent Delete Sponsor',           //7
+        ],
+    ],
+    14 =>[   'title'=>"Earnings",
+        'menu' =>  [
+                'All Earnings',                       //0
+                'Create Earning',                    //1
+                'Show Earning detail',               //2
+                'Update Earning',                    //3
+                'Delete Earnings',                    //4
+                'Deleted Earnings',                   //5
+                'Restore Earnings',                    //6
+                'Permanent Delete Earning',           //7
+        ],
+    ],
+    15 =>[   'title'=>"Deductions",
+        'menu' =>  [
+                'All Deductions',                       //0
+                'Create Deduction',                    //1
+                'Show Deduction detail',               //2
+                'Update Deduction',                    //3
+                'Delete Deductions',                    //4
+                'Deleted Deductions',                   //5
+                'Restore Deductions',                    //6
+                'Permanent Delete Deduction',           //7
+        ],
+    ],
+    16 =>[   'title'=>"Modifications",
+        'menu' =>  [
+                'All Modifications',                       //0
+                'Create Modification',                    //1
+                'Show Modification detail',               //2
+                'Update Modification',                    //3
+                'Delete Modifications',                    //4
+                'Deleted Modifications',                   //5
+                'Restore Modifications',                    //6
+                'Permanent Delete Modification',           //7
+        ],
+    ],
+    17 =>[   'title'=>"Sections",
+        'menu' =>  [
+                'All Sections',                       //0
+                'Create Section',                    //1
+                'Show Section detail',               //2
+                'Update Section',                    //3
+                'Delete Sections',                    //4
+                'Deleted Sections',                   //5
+                'Restore Sections',                    //6
+                'Permanent Delete Section',           //7
+        ],
+    ],
+    18 =>[   'title'=>"Cost Centers",
+        'menu' =>  [
+                'All Cost Centers',                       //0
+                'Create Cost Center',                    //1
+                'Show Cost Center detail',               //2
+                'Update Cost Center',                    //3
+                'Delete Cost Centers',                    //4
+                'Deleted Cost Centers',                   //5
+                'Restore Cost Centers',                    //6
+                'Permanent Delete Cost Center',           //7
+        ],
+    ],
+    19 =>[   'title'=>"Percentages",
+        'menu' =>  [
+                'All Percentages',                       //0
+                'Create Percentage',                    //1
+                'Show Percentage detail',               //2
+                'Update Percentage',                    //3
+                'Delete Percentages',                    //4
+                'Deleted Percentages',                   //5
+                'Restore Percentages',                    //6
+                'Permanent Delete Percentage',           //7
+        ],
+    ],
+    20 =>[   'title'=>"Sessions",
+        'menu' =>  [
+                'All Sessions',                       //0
+                'Create Session',                    //1
+                'Show Session detail',               //2
+                'Update Session',                    //3
+                'Delete Sessions',                    //4
+                'Deleted Sessions',                   //5
+                'Restore Sessions',                    //6
+                'Permanent Delete Session',           //7
+        ],
+    ],
 ];

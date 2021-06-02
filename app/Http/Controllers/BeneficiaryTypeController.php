@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Helpers\QB;
-use App\Models\EvaluationType;
+use App\Models\BeneficiaryType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -14,13 +14,13 @@ class BeneficiaryTypeController extends Controller
 {
     use \App\Traits\WebServicesDoc;
 
-    // get list of all the EvaluationTypes
+    // get list of all the BeneficiaryTypes
    
     public function index(Request $request)
     {
         $oInput = $request->all();
 
-        $oQb = EvaluationType::orderByDesc('updated_at');
+        $oQb = BeneficiaryType::orderByDesc('updated_at');
         $oQb = QB::where($oInput,"id",$oQb);
         $oQb = QB::whereLike($oInput,"en_name",$oQb);
         $oQb = QB::whereLike($oInput,"ar_name",$oQb);
@@ -37,14 +37,14 @@ class BeneficiaryTypeController extends Controller
         $oQb = QB::where($oInput,"percent_frsalary",$oQb);
         $oQb = QB::where($oInput,"mb",$oQb);
         
-        $oEvaluationTypes = $oQb->paginate(10);
+        $oBeneficiaryTypes = $oQb->paginate(10);
         
-        $oResponse = responseBuilder()->success(__('message.general.list',["mod"=>"EvaluationTypes"]), $oEvaluationTypes, false);
+        $oResponse = responseBuilder()->success(__('message.general.list',["mod"=>"BeneficiaryTypes"]), $oBeneficiaryTypes, false);
         $this->urlRec(11, 0, $oResponse);
         return $oResponse;
     }
 
-    // Store new EvaluationType
+    // Store new BeneficiaryType
 
     public function store(Request $request)
     {
@@ -71,7 +71,7 @@ class BeneficiaryTypeController extends Controller
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
 
-        $oEvaluationType = EvaluationType::create([
+        $oBeneficiaryType = BeneficiaryType::create([
             'en_name'       =>  $oInput['en_name'],
             'ar_name'       =>  $oInput['ar_name'],
             'parentbenefit' =>  $oInput['parentbenefit'],
@@ -91,9 +91,9 @@ class BeneficiaryTypeController extends Controller
             'updated_at'    =>  Carbon::now()->toDateTimeString(),
         ]);
 
-        $oEvaluationType= EvaluationType::findOrFail($oEvaluationType->id);
+        $oBeneficiaryType= BeneficiaryType::findOrFail($oBeneficiaryType->id);
 
-        $oResponse = responseBuilder()->success(__('message.general.create',["mod"=>"EvaluationType"]), $oEvaluationType, false);
+        $oResponse = responseBuilder()->success(__('message.general.create',["mod"=>"BeneficiaryType"]), $oBeneficiaryType, false);
 
         $this->urlRec(11, 1, $oResponse);
         return $oResponse;
@@ -103,9 +103,9 @@ class BeneficiaryTypeController extends Controller
     public function show($id)
     {
 
-        $oEvaluationType= EvaluationType::findOrFail($id);
+        $oBeneficiaryType= BeneficiaryType::findOrFail($id);
 
-        $oResponse = responseBuilder()->success(__('message.general.detail',["mod"=>"EvaluationType"]), $oEvaluationType, false);
+        $oResponse = responseBuilder()->success(__('message.general.detail',["mod"=>"BeneficiaryType"]), $oBeneficiaryType, false);
 
         $this->urlRec(11, 2, $oResponse); 
         return $oResponse;
@@ -136,9 +136,9 @@ class BeneficiaryTypeController extends Controller
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-        $oEvaluationType = EvaluationType::findOrFail($id); 
+        $oBeneficiaryType = BeneficiaryType::findOrFail($id); 
 
-        $oEvaluationTypes = $oEvaluationType->update([
+        $oBeneficiaryTypes = $oBeneficiaryType->update([
             'en_name'       =>  $oInput['en_name'],
             'ar_name'       =>  $oInput['ar_name'],
             'parentbenefit' =>  $oInput['parentbenefit'],
@@ -156,9 +156,9 @@ class BeneficiaryTypeController extends Controller
             'mb'            =>  $oInput['mb'],
             'updated_at'    =>  Carbon::now()->toDateTimeString(),
         ]);
-        $oEvaluationType = EvaluationType::findOrFail($id);
+        $oBeneficiaryType = BeneficiaryType::find($id);
 
-        $oResponse = responseBuilder()->success(__('message.general.update',["mod"=>"EvaluationType"]), $oEvaluationType, false);
+        $oResponse = responseBuilder()->success(__('message.general.update',["mod"=>"BeneficiaryType"]), $oBeneficiaryType, false);
 
         $this->urlRec(11, 3, $oResponse);
         return $oResponse;
@@ -178,17 +178,17 @@ class BeneficiaryTypeController extends Controller
         $aIds = $request->ids;
         if(is_array($aIds)){
             foreach($aIds as $id){
-                $oEvaluationType = EvaluationType::find($id);
-                if($oEvaluationType){
-                    $oEvaluationType->delete();
+                $oBeneficiaryType = BeneficiaryType::find($id);
+                if($oBeneficiaryType){
+                    $oBeneficiaryType->delete();
                 }
             }
         }else{
-            $oEvaluationType = EvaluationType::findOrFail($aIds);
-            $oEvaluationType->delete();
+            $oBeneficiaryType = BeneficiaryType::findOrFail($aIds);
+            $oBeneficiaryType->delete();
         }
        
-        $oResponse = responseBuilder()->success(__('message.general.delete',["mod"=>"EvaluationType"]));
+        $oResponse = responseBuilder()->success(__('message.general.delete',["mod"=>"BeneficiaryType"]));
         $this->urlRec(11, 4, $oResponse);
         return $oResponse;
     }
@@ -196,9 +196,9 @@ class BeneficiaryTypeController extends Controller
     // Get soft deleted data
     public function deleted()
     {
-        $oEvaluationType = EvaluationType::onlyTrashed()->paginate(10);
+        $oBeneficiaryType = BeneficiaryType::onlyTrashed()->paginate(10);
 
-        $oResponse = responseBuilder()->success(__('message.general.deleted',["mod"=>"EvaluationType"]), $oEvaluationType, false);
+        $oResponse = responseBuilder()->success(__('message.general.deleted',["mod"=>"BeneficiaryType"]), $oBeneficiaryType, false);
         
         $this->urlRec(11, 5, $oResponse);
         return $oResponse;
@@ -217,16 +217,16 @@ class BeneficiaryTypeController extends Controller
         if(is_array($aIds)){
             foreach($aIds as $id){
                 
-                $oEvaluationType = EvaluationType::onlyTrashed()->find($id);
-                if($oEvaluationType){
-                    $oEvaluationType->restore();
+                $oBeneficiaryType = BeneficiaryType::onlyTrashed()->find($id);
+                if($oBeneficiaryType){
+                    $oBeneficiaryType->restore();
                 }
             }
         }else{
-            $oEvaluationType = EvaluationType::onlyTrashed()->findOrFail($aIds);
-            $oEvaluationType->restore();
+            $oBeneficiaryType = BeneficiaryType::onlyTrashed()->findOrFail($aIds);
+            $oBeneficiaryType->restore();
         }
-        $oResponse = responseBuilder()->success(__('message.general.restore',["mod"=>"EvaluationType"]));
+        $oResponse = responseBuilder()->success(__('message.general.restore',["mod"=>"BeneficiaryType"]));
 
         $this->urlRec(11, 6, $oResponse);
         return $oResponse;
@@ -234,11 +234,11 @@ class BeneficiaryTypeController extends Controller
     // Permanent Delete
     public function delete($id)
     {
-        $oEvaluationType = EvaluationType::onlyTrashed()->findOrFail($id);
+        $oBeneficiaryType = BeneficiaryType::onlyTrashed()->findOrFail($id);
         
-        $oEvaluationType->forceDelete();
+        $oBeneficiaryType->forceDelete();
         
-        $oResponse = responseBuilder()->success(__('message.general.permanentDelete',["mod"=>"EvaluationType"]));
+        $oResponse = responseBuilder()->success(__('message.general.permanentDelete',["mod"=>"BeneficiaryType"]));
         $this->urlRec(11, 7, $oResponse);
         return $oResponse;
     }
