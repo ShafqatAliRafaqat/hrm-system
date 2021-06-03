@@ -187,4 +187,12 @@ use Illuminate\Support\Facades\Route;
         Route::post('restore_sessions',  'SessionController@restore');
         Route::delete('permanent_delete_session/{id}',  'SessionController@delete');
 
+        //GosiSubscription
+        Route::resource('gosis',  'GosiSubscriptionController');
+        Route::post('delete_gosis',  'GosiSubscriptionController@destroy');
+        Route::post('gosi/{id}',  'GosiSubscriptionController@update');
+        Route::get('deleted_gosis',  'GosiSubscriptionController@deleted');
+        Route::post('restore_gosis',  'GosiSubscriptionController@restore');
+        Route::delete('permanent_delete_gosi/{id}',  'GosiSubscriptionController@delete');
+
     });

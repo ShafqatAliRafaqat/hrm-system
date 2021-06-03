@@ -264,4 +264,16 @@ return [
                 'Permanent Delete Session',           //7
         ],
     ],
+    21 =>[   'title'=>"Gosis",
+        'menu' =>  [
+                'All Gosis',                       //0
+                'Create Gosi',                    //1
+                'Show Gosi detail',               //2
+                'Update Gosi',                    //3
+                'Delete Gosis',                    //4
+                'Deleted Gosis',                   //5
+                'Restore Gosis',                    //6
+                'Permanent Delete Gosi',           //7
+        ],
+    ],
 ];
