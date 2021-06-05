@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Helpers\QB;
 use DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CountryController extends Controller
 {
@@ -46,7 +47,7 @@ class CountryController extends Controller
             'ar_name'   => 'required|max:50',
             'en_nationality'   => 'required|max:50',
             'ar_nationality'   => 'required|max:50',
-            'code'   => 'required|max:3',
+            'code'   => 'required|max:3|unique:countries',
             'phonecode'=> 'required|max:3',
         ]);
 
@@ -94,7 +95,7 @@ class CountryController extends Controller
             'ar_name'   => 'required|max:50',
             'en_nationality'   => 'required|max:50',
             'ar_nationality'   => 'required|max:50',
-            'code'   => 'required|max:3',
+            'code'   => 'required|max:3|unique:countries,code,'.$id,
             'phonecode'=> 'required|max:3',
         ]);
 
