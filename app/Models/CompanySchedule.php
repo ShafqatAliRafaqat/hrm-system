@@ -10,4 +10,7 @@ class CompanySchedule extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = ['id'];
+    public function companyId(){
+        return $this->belongsTo('App\Models\Company','company_id','id');
+    }
 }

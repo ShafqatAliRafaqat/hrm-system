@@ -195,4 +195,35 @@ use Illuminate\Support\Facades\Route;
         Route::post('restore_gosis',  'GosiSubscriptionController@restore');
         Route::delete('permanent_delete_gosi/{id}',  'GosiSubscriptionController@delete');
 
+        //Greg Hijri Actuals
+        Route::resource('greg_hijris',  'GregHijriActualController');
+        Route::post('delete_greg_hijris',  'GregHijriActualController@destroy');
+        Route::post('greg_hijri/{id}',  'GregHijriActualController@update');
+        Route::get('deleted_greg_hijris',  'GregHijriActualController@deleted');
+        Route::post('restore_greg_hijris',  'GregHijriActualController@restore');
+        Route::delete('permanent_delete_greg_hijri/{id}',  'GregHijriActualController@delete');
+
+        //Hijri Dates
+        Route::resource('hijri_dates',  'HijriDateController');
+        Route::post('delete_hijri_dates',  'HijriDateController@destroy');
+        Route::post('hijri_date/{id}',  'HijriDateController@update');
+        Route::get('deleted_hijri_dates',  'HijriDateController@deleted');
+        Route::post('restore_hijri_dates',  'HijriDateController@restore');
+        Route::delete('permanent_delete_hijri_date/{id}',  'HijriDateController@delete');
+
+        //Companies
+        Route::resource('companies',  'CompanyController');
+        Route::post('delete_companies',  'CompanyController@destroy');
+        Route::post('company/{id}',  'CompanyController@update');
+        Route::get('deleted_companies',  'CompanyController@deleted');
+        Route::post('restore_companies',  'CompanyController@restore');
+        Route::delete('permanent_delete_company/{id}',  'CompanyController@delete');
+
+        //Company Schedules
+        Route::resource('company_schedules',  'CompanyScheduleController');
+        Route::post('delete_company_schedules',  'CompanyScheduleController@destroy');
+        Route::post('company_schedule/{id}',  'CompanyScheduleController@update');
+        Route::get('deleted_company_schedules',  'CompanyScheduleController@deleted');
+        Route::post('restore_company_schedules',  'CompanyScheduleController@restore');
+        Route::delete('permanent_delete_company_schedule/{id}',  'CompanyScheduleController@delete');
     });

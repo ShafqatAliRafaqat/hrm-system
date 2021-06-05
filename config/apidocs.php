@@ -276,4 +276,52 @@ return [
                 'Permanent Delete Gosi',           //7
         ],
     ],
+    22 =>[   'title'=>"Greg Hijris",
+        'menu' =>  [
+                'All Greg Hijris',                       //0
+                'Create Greg Hijri',                    //1
+                'Show Greg Hijri detail',               //2
+                'Update Greg Hijri',                    //3
+                'Delete Greg Hijris',                    //4
+                'Deleted Greg Hijris',                   //5
+                'Restore Greg Hijris',                    //6
+                'Permanent Delete Greg Hijri',           //7
+        ],
+    ],
+    23 =>[   'title'=>"Hijri Dates",
+        'menu' =>  [
+                'All Hijri Dates',                       //0
+                'Create Hijri Date',                    //1
+                'Show Hijri Date detail',               //2
+                'Update Hijri Date',                    //3
+                'Delete Hijri Dates',                    //4
+                'Deleted Hijri Dates',                   //5
+                'Restore Hijri Dates',                    //6
+                'Permanent Delete Hijri Date',           //7
+        ],
+    ],
+    24 =>[   'title'=>"Companies",
+        'menu' =>  [
+                'All Companies',                       //0
+                'Create Company',                    //1
+                'Show Company detail',               //2
+                'Update Company',                    //3
+                'Delete Companies',                    //4
+                'Deleted Companies',                   //5
+                'Restore Companies',                    //6
+                'Permanent Delete Company',           //7
+        ],
+    ],
+    25 =>[   'title'=>"Company Schedules",
+        'menu' =>  [
+                'All Company Schedules',                       //0
+                'Create Company Schedule',                    //1
+                'Show Company detail',               //2
+                'Update Company Schedule',                    //3
+                'Delete Company Schedules',                    //4
+                'Deleted Company Schedules',                   //5
+                'Restore Company Schedules',                    //6
+                'Permanent Delete Company Schedule',           //7
+        ],
+    ],
 ];

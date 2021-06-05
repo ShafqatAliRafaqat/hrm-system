@@ -53,9 +53,7 @@ class CountryController extends Controller
 
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
-        }
-        $oCountry = Country::orderByDesc('updated_at')->pluck('id')->first();
-        
+        } 
         $oCountry = Country::create([
             'en_name'           =>  $oInput['en_name'],
             'ar_name'           =>  $oInput['ar_name'],
