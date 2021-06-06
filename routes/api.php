@@ -242,4 +242,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_company_departments',  'CompanyDepartmentController@deleted');
         Route::post('restore_company_departments',  'CompanyDepartmentController@restore');
         Route::delete('permanent_delete_company_department/{id}',  'CompanyDepartmentController@delete');
+        
+        //Department Section
+        Route::resource('department_sections',  'DepartmentSectionController');
+        Route::post('delete_department_sections',  'DepartmentSectionController@destroy');
+        Route::post('department_section/{id}',  'DepartmentSectionController@update');
+        Route::get('deleted_department_sections',  'DepartmentSectionController@deleted');
+        Route::post('restore_department_sections',  'DepartmentSectionController@restore');
+        Route::delete('permanent_delete_department_section/{id}',  'DepartmentSectionController@delete');
     });

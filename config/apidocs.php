@@ -348,4 +348,16 @@ return [
                 'Permanent Delete Company Department',           //7
         ],
     ],
+    28 =>[   'title'=>"Department Section",
+        'menu' =>  [
+                'All Department Sections',                       //0
+                'Create Department Section',                    //1
+                'Show Department Section detail',               //2
+                'Update Department Section',                    //3
+                'Delete Department Sections',                    //4
+                'Deleted Department Sections',                   //5
+                'Restore Department Sections',                    //6
+                'Permanent Delete Department Section',           //7
+        ],
+    ],
 ];
