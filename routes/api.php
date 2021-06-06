@@ -226,4 +226,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_company_schedules',  'CompanyScheduleController@deleted');
         Route::post('restore_company_schedules',  'CompanyScheduleController@restore');
         Route::delete('permanent_delete_company_schedule/{id}',  'CompanyScheduleController@delete');
+
+        //Company Branch
+        Route::resource('company_branches',  'CompanyBranchController');
+        Route::post('delete_company_branches',  'CompanyBranchController@destroy');
+        Route::post('company_branch/{id}',  'CompanyBranchController@update');
+        Route::get('deleted_company_branches',  'CompanyBranchController@deleted');
+        Route::post('restore_company_branches',  'CompanyBranchController@restore');
+        Route::delete('permanent_delete_company_branch/{id}',  'CompanyBranchController@delete');
     });

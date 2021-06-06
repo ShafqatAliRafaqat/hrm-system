@@ -31,6 +31,7 @@ class CreateCompanyBranchesTable extends Migration
             $table->string('phone_1',15)->nullable();
             $table->string('phone_2',15)->nullable();
             $table->string('phone_3',15)->nullable();
+            $table->string('fax_1',15)->nullable();
             $table->string('fax_2',15)->nullable();
             $table->string('fax_3',15)->nullable();
             $table->string('email',15)->nullable();

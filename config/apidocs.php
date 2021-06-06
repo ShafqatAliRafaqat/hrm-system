@@ -324,4 +324,16 @@ return [
                 'Permanent Delete Company Schedule',           //7
         ],
     ],
+    26 =>[   'title'=>"Company branches",
+        'menu' =>  [
+                'All Company branches',                       //0
+                'Create Company branch',                    //1
+                'Show Company branch detail',               //2
+                'Update Company branch',                    //3
+                'Delete Company branches',                    //4
+                'Deleted Company branches',                   //5
+                'Restore Company branches',                    //6
+                'Permanent Delete Company branch',           //7
+        ],
+    ],
 ];
