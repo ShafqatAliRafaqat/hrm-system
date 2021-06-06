@@ -336,4 +336,16 @@ return [
                 'Permanent Delete Company branch',           //7
         ],
     ],
+    27 =>[   'title'=>"Company Department",
+        'menu' =>  [
+                'All Company Departments',                       //0
+                'Create Company Department',                    //1
+                'Show Company Department detail',               //2
+                'Update Company Department',                    //3
+                'Delete Company Departments',                    //4
+                'Deleted Company Departments',                   //5
+                'Restore Company Departments',                    //6
+                'Permanent Delete Company Department',           //7
+        ],
+    ],
 ];
