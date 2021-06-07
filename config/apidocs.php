@@ -360,4 +360,16 @@ return [
                 'Permanent Delete Department Section',           //7
         ],
     ],
+    29 =>[   'title'=>"Employees",
+        'menu' =>  [
+                'All Employees',                       //0
+                'Create Employee',                    //1
+                'Show Employee detail',               //2
+                'Update Employee',                    //3
+                'Delete Employees',                    //4
+                'Deleted Employees',                   //5
+                'Restore Employees',                    //6
+                'Permanent Delete Employee',           //7
+        ],
+    ],
 ];

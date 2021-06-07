@@ -250,4 +250,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_department_sections',  'DepartmentSectionController@deleted');
         Route::post('restore_department_sections',  'DepartmentSectionController@restore');
         Route::delete('permanent_delete_department_section/{id}',  'DepartmentSectionController@delete');
+
+        // Employess
+        Route::resource('employees',  'EmployeeController');
+        Route::post('delete_employees',  'EmployeeController@destroy');
+        Route::post('employee/{id}',  'EmployeeController@update');
+        Route::get('deleted_employees',  'EmployeeController@deleted');
+        Route::post('restore_employees',  'EmployeeController@restore');
+        Route::delete('permanent_delete_employee/{id}',  'EmployeeController@delete');
     });
