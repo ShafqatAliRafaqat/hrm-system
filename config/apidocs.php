@@ -384,4 +384,25 @@ return [
                 'Permanent Delete Company Bank',           //7
         ],
     ],
+    31 =>[   'title'=>"Legal Documents",
+        'menu' =>  [
+                'All Legal Documents',                       //0
+                'Create Legal Document',                    //1
+                'Show Legal Document detail',               //2
+                'Update Legal Document',                    //3
+                'Delete Legal Documents',                    //4
+                'Deleted Legal Documents',                   //5
+                'Restore Legal Documents',                    //6
+                'Permanent Delete Legal Document',           //7
+        ],
+    ],
+    32 =>[   'title'=>"Company Notes",
+        'menu' =>  [
+                'All Company Notes',                      //0
+                'Create Company Note',                    //1
+                'Show Company Note detail',               //2
+                'Update Company Note',                    //3
+                'Delete Company Notes',                   //4
+        ],
+    ],
 ];

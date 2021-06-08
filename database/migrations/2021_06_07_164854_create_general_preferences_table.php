@@ -41,7 +41,7 @@ class CreateGeneralPreferencesTable extends Migration
             $table->foreign('branch_id')->references('id')->on('company_branches');
             $table->foreign('country_id')->references('id')->on('countries');
             $table->foreign('city_id')->references('id')->on('cities');
-            $table->foreign('currency_id')->references('id')->on('currency_types');
+            $table->foreign('employee_id')->references('id')->on('employees');
         });
     }
 

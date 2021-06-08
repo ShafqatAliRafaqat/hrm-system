@@ -266,4 +266,17 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_compnay_banks',  'CompanyBankController@deleted');
         Route::post('restore_compnay_banks',  'CompanyBankController@restore');
         Route::delete('permanent_delete_compnay_bank/{id}',  'CompanyBankController@delete');
+
+        // Legal Documents
+        Route::resource('legal_documents',  'LegalDocumentController');
+        Route::post('delete_legal_documents',  'LegalDocumentController@destroy');
+        Route::post('legal_document/{id}',  'LegalDocumentController@update');
+        Route::get('deleted_legal_documents',  'LegalDocumentController@deleted');
+        Route::post('restore_legal_documents',  'LegalDocumentController@restore');
+        Route::delete('permanent_delete_legal_document/{id}',  'LegalDocumentController@delete');
+
+        // Company Notes
+        Route::resource('company_notes',  'CompanyNoteController');
+        Route::post('delete_company_notes',  'CompanyNoteController@destroy');
+        Route::post('company_note/{id}',  'CompanyNoteController@update');
     });
