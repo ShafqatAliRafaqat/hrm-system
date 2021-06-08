@@ -258,4 +258,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('deleted_employees',  'EmployeeController@deleted');
         Route::post('restore_employees',  'EmployeeController@restore');
         Route::delete('permanent_delete_employee/{id}',  'EmployeeController@delete');
+
+        // Compnay Bank
+        Route::resource('compnay_banks',  'CompanyBankController');
+        Route::post('delete_compnay_banks',  'CompanyBankController@destroy');
+        Route::post('compnay_bank/{id}',  'CompanyBankController@update');
+        Route::get('deleted_compnay_banks',  'CompanyBankController@deleted');
+        Route::post('restore_compnay_banks',  'CompanyBankController@restore');
+        Route::delete('permanent_delete_compnay_bank/{id}',  'CompanyBankController@delete');
     });

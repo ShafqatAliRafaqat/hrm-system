@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComapnyBanksTable extends Migration
+class CreateCompanyBanksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateComapnyBanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('comapny_banks', function (Blueprint $table) {
+        Schema::create('company_banks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('country_id')->unsigned();
             $table->unsignedBigInteger('city_id')->unsigned();
@@ -52,6 +52,6 @@ class CreateComapnyBanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comapny_banks');
+        Schema::dropIfExists('company_banks');
     }
 }

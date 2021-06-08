@@ -372,4 +372,16 @@ return [
                 'Permanent Delete Employee',           //7
         ],
     ],
+    30 =>[   'title'=>"Company Banks",
+        'menu' =>  [
+                'All Company Banks',                       //0
+                'Create Company Bank',                    //1
+                'Show Company Bank detail',               //2
+                'Update Company Bank',                    //3
+                'Delete Company Banks',                    //4
+                'Deleted Company Banks',                   //5
+                'Restore Company Banks',                    //6
+                'Permanent Delete Company Bank',           //7
+        ],
+    ],
 ];
