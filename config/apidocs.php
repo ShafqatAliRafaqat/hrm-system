@@ -405,4 +405,22 @@ return [
                 'Delete Company Notes',                   //4
         ],
     ],
+    33 =>[   'title'=>"Evaluation Posts",
+        'menu' =>  [
+                'All Evaluation Posts',                      //0
+                'Create Evaluation Post',                    //1
+                'Show Evaluation Post detail',               //2
+                'Update Evaluation Post',                    //3
+                'Delete Evaluation Posts',                   //4
+        ],
+    ],
+    34 =>[   'title'=>"Benefit Posts",
+        'menu' =>  [
+                'All Benefit Posts',                      //0
+                'Create Benefit Post',                    //1
+                'Show Benefit Post detail',               //2
+                'Update Benefit Post',                    //3
+                'Delete Benefit Posts',                   //4
+        ],
+    ],
 ];

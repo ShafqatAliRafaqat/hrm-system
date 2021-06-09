@@ -279,4 +279,14 @@ use Illuminate\Support\Facades\Route;
         Route::resource('company_notes',  'CompanyNoteController');
         Route::post('delete_company_notes',  'CompanyNoteController@destroy');
         Route::post('company_note/{id}',  'CompanyNoteController@update');
+
+        // EvaluationPosts
+        Route::resource('evaluation_posts',  'EvaluationPostController');
+        Route::post('delete_evaluation_posts',  'EvaluationPostController@destroy');
+        Route::post('evaluation_post/{id}',  'EvaluationPostController@update');
+
+        // BenefitPosts
+        Route::resource('benefit_posts',  'BenefitPostController');
+        Route::post('delete_benefit_posts',  'BenefitPostController@destroy');
+        Route::post('benefit_post/{id}',  'BenefitPostController@update');
     });
