@@ -285,8 +285,33 @@ use Illuminate\Support\Facades\Route;
         Route::post('delete_evaluation_posts',  'EvaluationPostController@destroy');
         Route::post('evaluation_post/{id}',  'EvaluationPostController@update');
 
-        // BenefitPosts
-        Route::resource('benefit_posts',  'BenefitPostController');
-        Route::post('delete_benefit_posts',  'BenefitPostController@destroy');
-        Route::post('benefit_post/{id}',  'BenefitPostController@update');
+        // Gosi Preferences
+        Route::resource('gosi_preferences',  'GosiPreferenceController');
+        Route::post('delete_gosi_preferences',  'GosiPreferenceController@destroy');
+        Route::post('gosi_preference/{id}',  'GosiPreferenceController@update');
+
+        // Payroll Preference
+        Route::resource('payroll_preferences',  'PayrollPreferenceController');
+        Route::post('delete_payroll_preferences',  'PayrollPreferenceController@destroy');
+        Route::post('payroll_preference/{id}',  'PayrollPreferenceController@update');
+
+        // Effectivity Preference
+        Route::resource('effectivity_preferences',  'EffectivityPreferenceController');
+        Route::post('delete_effectivity_preferences',  'EffectivityPreferenceController@destroy');
+        Route::post('effectivity_preference/{id}',  'EffectivityPreferenceController@update');
+
+        // Payroll Specific Preference
+        Route::resource('payroll_specific_preferences',  'PayrollSpecificPreferenceController');
+        Route::post('delete_payroll_specific_preferences',  'PayrollSpecificPreferenceController@destroy');
+        Route::post('payroll_specific_preference/{id}',  'PayrollSpecificPreferenceController@update');
+
+        // Leave Specific Preferences
+        Route::resource('leave_specific_preferences',  'LeaveSpecificPreferenceController');
+        Route::post('delete_leave_specific_preferences',  'LeaveSpecificPreferenceController@destroy');
+        Route::post('leave_specific_preference/{id}',  'LeaveSpecificPreferenceController@update');
+
+        // Termination Specific Preferences
+        Route::resource('termination_specific_preferences',  'TerminationSpecificPreferenceController');
+        Route::post('delete_termination_specific_preferences',  'TerminationSpecificPreferenceController@destroy');
+        Route::post('termination_specific_preference/{id}',  'TerminationSpecificPreferenceController@update');
     });

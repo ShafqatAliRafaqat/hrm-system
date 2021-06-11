@@ -423,4 +423,58 @@ return [
                 'Delete Benefit Posts',                   //4
         ],
     ],
+    35 =>[   'title'=>"Gosi Preferences",
+        'menu' =>  [
+                'All Gosi Preferences',                      //0
+                'Create Gosi Preference',                    //1
+                'Show Gosi Preference detail',               //2
+                'Update Gosi Preference',                    //3
+                'Delete Gosi Preferences',                   //4
+        ],
+    ],
+    36 =>[   'title'=>"Payroll Preferences",
+        'menu' =>  [
+                'All Payroll Preferences',                      //0
+                'Create Payroll Preference',                    //1
+                'Show Payroll Preference detail',               //2
+                'Update Payroll Preference',                    //3
+                'Delete Payroll Preferences',                   //4
+        ],
+    ],
+    37 =>[   'title'=>"Effectivity Preferences",
+        'menu' =>  [
+                'All Effectivity Preferences',                      //0
+                'Create Effectivity Preference',                    //1
+                'Show Effectivity Preference detail',               //2
+                'Update Effectivity Preference',                    //3
+                'Delete Effectivity Preferences',                   //4
+        ],
+    ],
+    38 =>[   'title'=>"Payroll Specific Preferences",
+        'menu' =>  [
+                'All Payroll Specific Preferences',                      //0
+                'Create Payroll Specific Preference',                    //1
+                'Show Payroll Specific Preference detail',               //2
+                'Update Payroll Specific Preference',                    //3
+                'Delete Payroll Specific Preferences',                   //4
+        ],
+    ],
+    39 =>[   'title'=>"Leave Specific Preferences",
+        'menu' =>  [
+                'All Leave Specific Preferences',                      //0
+                'Create Leave Specific Preference',                    //1
+                'Show Leave Specific Preference detail',               //2
+                'Update Leave Specific Preference',                    //3
+                'Delete Leave Specific Preferences',                   //4
+        ],
+    ],
+    40 =>[   'title'=>"Termination Specific Preferences",
+        'menu' =>  [
+                'All Termination Specific Preferences',                      //0
+                'Create Termination Specific Preference',                    //1
+                'Show Termination Specific Preference detail',               //2
+                'Update Termination Specific Preference',                    //3
+                'Delete Termination Specific Preferences',                   //4
+        ],
+    ],
 ];
