@@ -35,8 +35,8 @@ class LeaveSpecificPreferenceController extends Controller
         
         $oLeaveSpecificPreferences = $oQb->paginate(10);
         
-        $oResponse = responseBuilder()->success(__('message.general.list',["mod"=>"LeaveSpecific Preference"]), $oLeaveSpecificPreferences, false);
-        $this->urlRec(35, 0, $oResponse);
+        $oResponse = responseBuilder()->success(__('message.general.list',["mod"=>"Leave Specific Preference"]), $oLeaveSpecificPreferences, false);
+        $this->urlRec(39, 0, $oResponse);
         return $oResponse;
     }
     // Store new country
@@ -84,8 +84,8 @@ class LeaveSpecificPreferenceController extends Controller
 
         $oLeaveSpecificPreference= LeaveSpecificPreference::with(['companyId','branchId','createdBy','updatedBy'])->findOrFail($oLeaveSpecificPreference->id);
 
-        $oResponse = responseBuilder()->success(__('message.general.create',["mod"=>"LeaveSpecific Preference"]), $oLeaveSpecificPreference, false);
-        $this->urlRec(35, 1, $oResponse);
+        $oResponse = responseBuilder()->success(__('message.general.create',["mod"=>"Leave Specific Preference"]), $oLeaveSpecificPreference, false);
+        $this->urlRec(39, 1, $oResponse);
         return $oResponse;
     }
     // Show country details
@@ -95,8 +95,8 @@ class LeaveSpecificPreferenceController extends Controller
 
         $oLeaveSpecificPreference= LeaveSpecificPreference::with(['companyId','branchId','createdBy','updatedBy'])->findOrFail($id);
 
-        $oResponse = responseBuilder()->success(__('message.general.detail',["mod"=>"LeaveSpecific Preference"]), $oLeaveSpecificPreference, false);
-        $this->urlRec(35, 2, $oResponse);
+        $oResponse = responseBuilder()->success(__('message.general.detail',["mod"=>"Leave Specific Preference"]), $oLeaveSpecificPreference, false);
+        $this->urlRec(39, 2, $oResponse);
         return $oResponse;
     }
     // Update country details
@@ -142,9 +142,9 @@ class LeaveSpecificPreferenceController extends Controller
         ]);
         $oLeaveSpecificPreference = LeaveSpecificPreference::with(['companyId','branchId','createdBy','updatedBy'])->findOrFail($id);
 
-        $oResponse = responseBuilder()->success(__('message.general.update',["mod"=>"LeaveSpecific Preference"]), $oLeaveSpecificPreference, false);
+        $oResponse = responseBuilder()->success(__('message.general.update',["mod"=>"Leave Specific Preference"]), $oLeaveSpecificPreference, false);
         
-        $this->urlRec(35, 3, $oResponse);
+        $this->urlRec(39, 3, $oResponse);
         
         return $oResponse;
     }
@@ -173,8 +173,8 @@ class LeaveSpecificPreferenceController extends Controller
             $oLeaveSpecificPreference->delete();
         }
         
-        $oResponse = responseBuilder()->success(__('message.general.delete',["mod"=>"LeaveSpecific Preference"]));
-        $this->urlRec(35, 4, $oResponse);
+        $oResponse = responseBuilder()->success(__('message.general.delete',["mod"=>"Leave Specific Preference"]));
+        $this->urlRec(39, 4, $oResponse);
         return $oResponse;
     }
 }
