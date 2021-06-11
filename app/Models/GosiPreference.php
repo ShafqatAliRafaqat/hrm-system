@@ -9,6 +9,7 @@ class GosiPreference extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'gosi_preferences';
     public function companyId(){
         return $this->belongsTo('App\Models\Company','company_id','id');
     }
