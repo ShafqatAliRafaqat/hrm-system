@@ -39,7 +39,7 @@ class CreateEmployeesTable extends Migration
             $table->string('birthplace',30)->nullable();
             $table->string('email',30)->nullable();
             $table->date('dob')->nullable();
-            $table->date('hired_date',10)->nullable();
+            $table->date('hired_date')->nullable();
             $table->string('dob_hijri',10)->nullable();
             $table->string('hired_date_hijri',10)->nullable();
             $table->string('position_as_per_iqama',30)->nullable();

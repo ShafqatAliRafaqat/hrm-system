@@ -32,7 +32,6 @@ class EmployeeController extends Controller
         $oQb = QB::whereLike($oInput,"civil_position_as_per_iqama",$oQb);
         $oQb = QB::where($oInput,"sex",$oQb);
         $oQb = QB::whereLike($oInput,"birthplace",$oQb);
-        $oQb = QB::whereLike($oInput,"phone_3",$oQb);
         $oQb = QB::whereDate($oInput,"hired_date",$oQb);
         $oQb = QB::whereDate($oInput,"dob",$oQb);
         $oQb = QB::whereLike($oInput,"dob_hijri",$oQb);
@@ -103,9 +102,9 @@ class EmployeeController extends Controller
             'remarks_1' => 'nullable|max:100',
             'remarks_2' => 'nullable|max:100',
             'status' => 'nullable|max:10',
-            'sponsor_id' => 'nullable|numeric',
-            'shift_id' => 'nullable|numeric',
-            'security_user_id' => 'nullable|numeric',
+            'sponsor_id' => 'nullable|integer',
+            'shift_id' => 'nullable|integer',
+            'security_user_id' => 'nullable|integer',
             'civil_status' => 'nullable|max:10',
             'dt_onloc' => 'nullable|max:10',
             'contract' => 'nullable|max:20',
@@ -153,7 +152,6 @@ class EmployeeController extends Controller
             'company_id'    =>  $oInput['company_id'],
             'birthplace'    =>  $oInput['birthplace'],
             'dob'           =>  $oInput['dob'],
-            'phone_3'       =>  $oInput['phone_3'],
             'fax_1'         =>  $oInput['fax_1'],
             'hired_date'    =>  $oInput['hired_date'],
             'dob_hijri'     =>  $oInput['dob_hijri'],
@@ -239,9 +237,9 @@ class EmployeeController extends Controller
             'remarks_1' => 'nullable|max:100',
             'remarks_2' => 'nullable|max:100',
             'status' => 'nullable|max:10',
-            'sponsor_id' => 'nullable|numeric',
-            'shift_id' => 'nullable|numeric',
-            'security_user_id' => 'nullable|numeric',
+            'sponsor_id' => 'nullable|integer',
+            'shift_id' => 'nullable|integer',
+            'security_user_id' => 'nullable|integer',
             'civil_status' => 'nullable|max:10',
             'dt_onloc' => 'nullable|max:10',
             'contract' => 'nullable|max:20',
@@ -291,7 +289,6 @@ class EmployeeController extends Controller
             'company_id'    =>  $oInput['company_id'],
             'birthplace'    =>  $oInput['birthplace'],
             'dob'           =>  $oInput['dob'],
-            'phone_3'       =>  $oInput['phone_3'],
             'fax_1'         =>  $oInput['fax_1'],
             'hired_date'    =>  $oInput['hired_date'],
             'dob_hijri'     =>  $oInput['dob_hijri'],

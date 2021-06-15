@@ -314,4 +314,68 @@ use Illuminate\Support\Facades\Route;
         Route::resource('termination_specific_preferences',  'TerminationSpecificPreferenceController');
         Route::post('delete_termination_specific_preferences',  'TerminationSpecificPreferenceController@destroy');
         Route::post('termination_specific_preference/{id}',  'TerminationSpecificPreferenceController@update');
+    
+        // Column Selecte
+        Route::resource('column_selects',  'ColumnSelectController');
+        Route::post('delete_column_selects',  'ColumnSelectController@destroy');
+        Route::post('column_select/{id}',  'ColumnSelectController@update');
+        Route::get('deleted_column_selects',  'ColumnSelectController@deleted');
+        Route::post('restore_column_selects',  'ColumnSelectController@restore');
+        Route::delete('permanent_delete_column_select/{id}',  'ColumnSelectController@delete');
+
+        // Letter
+        Route::resource('letters',  'LetterController');
+        Route::post('delete_letters',  'LetterController@destroy');
+        Route::post('letter/{id}',  'LetterController@update');
+        Route::get('deleted_letters',  'LetterController@deleted');
+        Route::post('restore_letters',  'LetterController@restore');
+        Route::delete('permanent_delete_letter/{id}',  'LetterController@delete');
+
+        // Letter Field
+        Route::resource('letter_fields',  'LetterFieldController');
+        Route::post('delete_letter_fields',  'LetterFieldController@destroy');
+        Route::post('letter_field/{id}',  'LetterFieldController@update');
+        Route::get('deleted_letter_fields',  'LetterFieldController@deleted');
+        Route::post('restore_letter_fields',  'LetterFieldController@restore');
+        Route::delete('permanent_delete_letter_field/{id}',  'LetterFieldController@delete');
+
+        // SMS
+        Route::resource('sms_templates',  'SMSTemplateController');
+        Route::post('delete_sms_templates',  'SMSTemplateController@destroy');
+        Route::post('sms_template/{id}',  'SMSTemplateController@update');
+        Route::get('deleted_sms_templates',  'SMSTemplateController@deleted');
+        Route::post('restore_sms_templates',  'SMSTemplateController@restore');
+        Route::delete('permanent_delete_sms_template/{id}',  'SMSTemplateController@delete');
+
+        // Letter Field
+        Route::resource('sms_fields',  'SmsFieldController');
+        Route::post('delete_sms_fields',  'SmsFieldController@destroy');
+        Route::post('sms_field/{id}',  'SmsFieldController@update');
+        Route::get('deleted_sms_fields',  'SmsFieldController@deleted');
+        Route::post('restore_sms_fields',  'SmsFieldController@restore');
+        Route::delete('permanent_delete_sms_field/{id}',  'SmsFieldController@delete');
+
+        // Employment
+        Route::resource('employments',  'EmploymentController');
+        Route::post('delete_employments',  'EmploymentController@destroy');
+        Route::post('employment/{id}',  'EmploymentController@update');
+        Route::get('deleted_employments',  'EmploymentController@deleted');
+        Route::post('restore_employments',  'EmploymentController@restore');
+        Route::delete('permanent_delete_employment/{id}',  'EmploymentController@delete');
+
+        // Employee Earning
+        Route::resource('employee_earnings',  'EmployeeEarningController');
+        Route::post('delete_employee_earnings',  'EmployeeEarningController@destroy');
+        Route::post('employee_earning/{id}',  'EmployeeEarningController@update');
+        Route::get('deleted_employee_earnings',  'EmployeeEarningController@deleted');
+        Route::post('restore_employee_earnings',  'EmployeeEarningController@restore');
+        Route::delete('permanent_delete_employee_earning/{id}',  'EmployeeEarningController@delete');
+
+        // EmployeeDeducation
+        Route::resource('employee_deducations',  'EmployeeDeducationController');
+        Route::post('delete_employee_deducations',  'EmployeeDeducationController@destroy');
+        Route::post('employee_deducation/{id}',  'EmployeeDeducationController@update');
+        Route::get('deleted_employee_deducations',  'EmployeeDeducationController@deleted');
+        Route::post('restore_employee_deducations',  'EmployeeDeducationController@restore');
+        Route::delete('permanent_delete_employee_deducation/{id}',  'EmployeeDeducationController@delete');
     });

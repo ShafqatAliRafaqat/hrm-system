@@ -477,4 +477,100 @@ return [
                 'Delete Termination Specific Preferences',                   //4
         ],
     ],
+    41 =>[   'title'=>"Column Selects",
+        'menu' =>  [
+                'All Column Selects',                       //0
+                'Create Column Select',                    //1
+                'Show Column Select detail',               //2
+                'Update Column Select',                    //3
+                'Delete Column Selects',                    //4
+                'Deleted Column Selects',                   //5
+                'Restore Column Selects',                    //6
+                'Permanent Delete Column Select',           //7
+        ],
+    ],
+    42 =>[   'title'=>"Letters",
+        'menu' =>  [
+                'All Letters',                       //0
+                'Create Letter',                    //1
+                'Show Letter detail',               //2
+                'Update Letter',                    //3
+                'Delete Letters',                    //4
+                'Deleted Letters',                   //5
+                'Restore Letters',                    //6
+                'Permanent Delete Letter',           //7
+        ],
+    ],
+    43 =>[   'title'=>"Letter Fields",
+        'menu' =>  [
+                'All Letter Fields',                       //0
+                'Create Letter Field',                    //1
+                'Show Letter Field detail',               //2
+                'Update Letter Field',                    //3
+                'Delete Letter Fields',                    //4
+                'Deleted Letter Fields',                   //5
+                'Restore Letter Fields',                    //6
+                'Permanent Delete Letter Field',           //7
+        ],
+    ],
+    44 =>[   'title'=>"Sms Templates",
+        'menu' =>  [
+                'All Sms Templates',                       //0
+                'Create Sms Template',                    //1
+                'Show Sms Template detail',               //2
+                'Update Sms Template',                    //3
+                'Delete Sms Templates',                    //4
+                'Deleted Sms Templates',                   //5
+                'Restore Sms Templates',                    //6
+                'Permanent Delete Sms Template',           //7
+        ],
+    ],
+    45 =>[   'title'=>"SMS Fields",
+        'menu' =>  [
+                'All SMS Fields',                       //0
+                'Create SMS Field',                    //1
+                'Show SMS Field detail',               //2
+                'Update SMS Field',                    //3
+                'Delete SMS Fields',                    //4
+                'Deleted SMS Fields',                   //5
+                'Restore SMS Fields',                    //6
+                'Permanent Delete SMS Field',           //7
+        ],
+    ],
+    46 =>[   'title'=>"Employments",
+        'menu' =>  [
+                'All Employments',                       //0
+                'Create Employment',                    //1
+                'Show Employment detail',               //2
+                'Update Employment',                    //3
+                'Delete Employments',                    //4
+                'Deleted Employments',                   //5
+                'Restore Employments',                    //6
+                'Permanent Delete Employment',           //7
+        ],
+    ],
+    47 =>[   'title'=>"Employee Earnings",
+        'menu' =>  [
+                'All Employee Earnings',                       //0
+                'Create Employee Earning',                    //1
+                'Show Employee Earning detail',               //2
+                'Update Employee Earning',                    //3
+                'Delete Employee Earnings',                    //4
+                'Deleted Employee Earnings',                   //5
+                'Restore Employee Earnings',                    //6
+                'Permanent Delete Employee Earning',           //7
+        ],
+    ],
+    48 =>[   'title'=>"Employee Deducations",
+    'menu' =>  [
+            'All Employee Deducations',                       //0
+            'Create Employee Deducation',                    //1
+            'Show Employee Deducation detail',               //2
+            'Update Employee Deducation',                    //3
+            'Delete Employee Deducations',                    //4
+            'Deleted Employee Deducations',                   //5
+            'Restore Employee Deducations',                    //6
+            'Permanent Delete Employee Deducation',           //7
+    ],
+],
 ];
