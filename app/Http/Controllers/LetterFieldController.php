@@ -9,7 +9,7 @@ use App\Helpers\QB;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
-class LetterFieldFieldController extends Controller
+class LetterFieldController extends Controller
 {
     use \App\Traits\WebServicesDoc;
 

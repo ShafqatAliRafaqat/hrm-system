@@ -59,7 +59,7 @@ class SmsFieldController extends Controller
             'sms_id'=>  $oInput['sms_id'],
             'column_id' =>  $oInput['column_id'],
             'en_name'=>  $oInput['en_name'],
-            'en_name'  =>  $oInput['en_name'],
+            'ar_name'  =>  $oInput['ar_name'],
             'created_by'=>  Auth::user()->id,
             'updated_by'=>  Auth::user()->id,
             'created_at'=>  Carbon::now()->toDateTimeString(),
@@ -93,7 +93,7 @@ class SmsFieldController extends Controller
             'order_by'   => 'nullable|integer',
             'both_language'   => 'nullable|in:0,1',
             'en_name' => 'nullable|max:50',
-            'en_name' => 'nullable|max:50',
+            'ar_name' => 'nullable|max:50',
             'sms_id' => 'required|exists:sms_templates,id',
             'column_id' => 'required|exists:column_selects,id',
         ]);
@@ -110,7 +110,7 @@ class SmsFieldController extends Controller
             'sms_id'=>  $oInput['sms_id'],
             'column_id' =>  $oInput['column_id'],
             'en_name'=>  $oInput['en_name'],
-            'en_name'  =>  $oInput['en_name'],
+            'ar_name'  =>  $oInput['ar_name'],
             'updated_by'=>  Auth::user()->id,
             'updated_at'=>  Carbon::now()->toDateTimeString(),
         ]);

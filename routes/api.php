@@ -315,7 +315,7 @@ use Illuminate\Support\Facades\Route;
         Route::post('delete_termination_specific_preferences',  'TerminationSpecificPreferenceController@destroy');
         Route::post('termination_specific_preference/{id}',  'TerminationSpecificPreferenceController@update');
     
-        // Column Selecte
+        // Column Select
         Route::resource('column_selects',  'ColumnSelectController');
         Route::post('delete_column_selects',  'ColumnSelectController@destroy');
         Route::post('column_select/{id}',  'ColumnSelectController@update');
