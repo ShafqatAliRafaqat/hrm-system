@@ -286,9 +286,9 @@ use Illuminate\Support\Facades\Route;
         Route::post('evaluation_post/{id}',  'EvaluationPostController@update');
 
         // benefitPosts
-        Route::resource('benefit_posts',  'benefitPostController');
-        Route::post('delete_benefit_posts',  'benefitPostController@destroy');
-        Route::post('benefit_post/{id}',  'benefitPostController@update');
+        Route::resource('benefit_posts',  'BenefitPostController');
+        Route::post('delete_benefit_posts',  'BenefitPostController@destroy');
+        Route::post('benefit_post/{id}',  'BenefitPostController@update');
 
         // Gosi Preferences
         Route::resource('gosi_preferences',  'GosiPreferenceController');
