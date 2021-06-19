@@ -23,6 +23,8 @@ class LetterFieldController extends Controller
         $oQb = QB::where($oInput,"id",$oQb);
         $oQb = QB::where($oInput,"order_by",$oQb);
         $oQb = QB::where($oInput,"both_language",$oQb);
+        $oQb = QB::where($oInput,"en_sequence",$oQb);
+        $oQb = QB::where($oInput,"ar_sequence",$oQb);
         $oQb = QB::whereLike($oInput,"format",$oQb);
         $oQb = QB::whereLike($oInput,"language",$oQb);
         $oQb = QB::where($oInput,"letter_id",$oQb);
@@ -42,6 +44,8 @@ class LetterFieldController extends Controller
 
         $oValidator = Validator::make($oInput,[
             'order_by'   => 'nullable|integer',
+            'en_sequence'   => 'nullable|integer',
+            'ar_sequence'   => 'nullable|integer',
             'both_language'   => 'nullable|in:0,1',
             'format' => 'nullable|max:500',
             'language' => 'nullable|max:20',
@@ -55,6 +59,8 @@ class LetterFieldController extends Controller
         
         $oLetterField = LetterField::create([
             'order_by' =>  $oInput['order_by'],
+            'en_sequence' =>  $oInput['en_sequence'],
+            'ar_sequence' =>  $oInput['ar_sequence'],
             'both_language'  =>  $oInput['both_language'],
             'letter_id'=>  $oInput['letter_id'],
             'column_id' =>  $oInput['column_id'],
@@ -91,6 +97,8 @@ class LetterFieldController extends Controller
 
         $oValidator = Validator::make($oInput,[
             'order_by'   => 'nullable|integer',
+            'en_sequence'   => 'nullable|integer',
+            'ar_sequence'   => 'nullable|integer',
             'both_language'   => 'nullable|in:0,1',
             'format' => 'nullable|max:500',
             'language' => 'nullable|max:20',
@@ -106,6 +114,8 @@ class LetterFieldController extends Controller
 
         $oLetterFields = $oLetterField->update([
             'order_by' =>  $oInput['order_by'],
+            'en_sequence' =>  $oInput['en_sequence'],
+            'ar_sequence' =>  $oInput['ar_sequence'],
             'both_language'  =>  $oInput['both_language'],
             'letter_id'=>  $oInput['letter_id'],
             'column_id' =>  $oInput['column_id'],

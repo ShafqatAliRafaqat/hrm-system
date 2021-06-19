@@ -42,6 +42,8 @@ class SmsFieldController extends Controller
 
         $oValidator = Validator::make($oInput,[
             'order_by'   => 'nullable|integer',
+            'en_sequence'   => 'nullable|integer',
+            'ar_sequence'   => 'nullable|integer',
             'both_language'   => 'nullable|in:0,1',
             'en_name' => 'nullable|max:50',
             'ar_name' => 'nullable|max:50',
@@ -55,6 +57,8 @@ class SmsFieldController extends Controller
         
         $oSmsField = SmsField::create([
             'order_by' =>  $oInput['order_by'],
+            'en_sequence' =>  $oInput['en_sequence'],
+            'ar_sequence' =>  $oInput['ar_sequence'],
             'both_language'  =>  $oInput['both_language'],
             'sms_id'=>  $oInput['sms_id'],
             'column_id' =>  $oInput['column_id'],
@@ -91,6 +95,8 @@ class SmsFieldController extends Controller
 
         $oValidator = Validator::make($oInput,[
             'order_by'   => 'nullable|integer',
+            'en_sequence'   => 'nullable|integer',
+            'ar_sequence'   => 'nullable|integer',
             'both_language'   => 'nullable|in:0,1',
             'en_name' => 'nullable|max:50',
             'ar_name' => 'nullable|max:50',
@@ -106,6 +112,8 @@ class SmsFieldController extends Controller
 
         $oSmsFields = $oSmsField->update([
             'order_by' =>  $oInput['order_by'],
+            'en_sequence' =>  $oInput['en_sequence'],
+            'ar_sequence' =>  $oInput['ar_sequence'],
             'both_language'  =>  $oInput['both_language'],
             'sms_id'=>  $oInput['sms_id'],
             'column_id' =>  $oInput['column_id'],
