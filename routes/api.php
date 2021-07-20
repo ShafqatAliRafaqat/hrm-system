@@ -376,11 +376,65 @@ use Illuminate\Support\Facades\Route;
         Route::post('restore_employee_earnings',  'EmployeeEarningController@restore');
         Route::delete('permanent_delete_employee_earning/{id}',  'EmployeeEarningController@delete');
 
-        // EmployeeDeducation
+        // Employee Deducation
         Route::resource('employee_deducations',  'EmployeeDeducationController');
         Route::post('delete_employee_deducations',  'EmployeeDeducationController@destroy');
         Route::post('employee_deducation/{id}',  'EmployeeDeducationController@update');
         Route::get('deleted_employee_deducations',  'EmployeeDeducationController@deleted');
         Route::post('restore_employee_deducations',  'EmployeeDeducationController@restore');
         Route::delete('permanent_delete_employee_deducation/{id}',  'EmployeeDeducationController@delete');
+
+        // Employee Evaluation
+        Route::resource('employee_evaluations',  'EmployeeEvaluationController');
+        Route::post('delete_employee_evaluations',  'EmployeeEvaluationController@destroy');
+        Route::post('employee_evaluation/{id}',  'EmployeeEvaluationController@update');
+
+        // Employee Evaluation Result
+        Route::resource('employee_evaluation_results',  'EmployeeEvaluationResultController');
+        Route::post('delete_employee_evaluation_results',  'EmployeeEvaluationResultController@destroy');
+    
+        // Employee Modification
+        Route::resource('employee_modifications',  'EmployeeModificationController');
+        Route::post('delete_employee_modifications',  'EmployeeModificationController@destroy');
+        Route::post('employee_modification/{id}',  'EmployeeModificationController@update');
+
+        // Employee Training
+        Route::resource('employee_trainings',  'EmployeeTrainingController');
+        Route::post('delete_employee_trainings',  'EmployeeTrainingController@destroy');
+        Route::post('employee_training/{id}',  'EmployeeTrainingController@update');
+        
+        // Employee Experience
+        Route::resource('employee_experiences',  'EmployeeExperienceController');
+        Route::post('delete_employee_experiences',  'EmployeeExperienceController@destroy');
+        Route::post('employee_experience/{id}',  'EmployeeExperienceController@update');
+
+        // Employee Address
+        Route::resource('employee_addresses',  'EmployeeAddressController');
+        Route::post('delete_employee_addresses',  'EmployeeAddressController@destroy');
+        Route::post('employee_address/{id}',  'EmployeeAddressController@update');
+
+        // Employee Dependent
+        Route::resource('employee_dependents',  'EmployeeDependentController');
+        Route::post('delete_employee_dependents',  'EmployeeDependentController@destroy');
+        Route::post('employee_dependent/{id}',  'EmployeeDependentController@update');
+    
+        // Employee Notes
+        Route::resource('employee_notes',  'EmployeeNoteController');
+        Route::post('delete_employee_notes',  'EmployeeNoteController@destroy');
+        Route::post('employee_note/{id}',  'EmployeeNoteController@update');
+
+        // Employee Document
+        Route::resource('employee_documents',  'EmployeeDocumentController');
+        Route::post('delete_employee_documents',  'EmployeeDocumentController@destroy');
+        Route::post('employee_document/{id}',  'EmployeeDocumentController@update');
+
+        // Employee Document Path
+        Route::resource('employee_document_paths',  'EmployeeDocumentPathController');
+        Route::post('delete_employee_document_paths',  'EmployeeDocumentPathController@destroy');
+        Route::post('employee_document_path/{id}',  'EmployeeDocumentPathController@update');
+
+        // Employee Leave
+        Route::resource('employee_leaves',  'EmployeeLeaveController');
+        Route::post('delete_employee_leaves',  'EmployeeLeaveController@destroy');
+        Route::post('employee_leave/{id}',  'EmployeeLeaveController@update');
     });

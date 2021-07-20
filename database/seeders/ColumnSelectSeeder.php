@@ -38,6 +38,14 @@ class ColumnSelectSeeder extends Seeder
             array('group_by'=>2,'order_by'=>9, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'nationailty','ar_name' => 'nationailty','en_description' => 'Nationailty','ar_description' => 'الإسم','type' => 'S'),
             array('group_by'=>2,'order_by'=>10, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'birth_date','ar_name' => 'birth_date','en_description' => 'Birth Date','ar_description' => 'الإسم','type' => 'S'),
 
+            array('group_by'=>3,'order_by'=>1, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'wife','ar_name' => 'wife','en_description' => 'wife','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>2, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'husband','ar_name' => 'husband','en_description' => 'husband','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>3, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'mother','ar_name' => 'mother','en_description' => 'mother','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>4, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'father','ar_name' => 'father','en_description' => 'father','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>5, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'brother','ar_name' => 'brother','en_description' => 'brother','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>6, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'son','ar_name' => 'son','en_description' => 'son','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>7, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'daughter','ar_name' => 'daughter','en_description' => 'daughter','ar_description' => 'الإسم','type' => 'dependents'),
+            array('group_by'=>3,'order_by'=>8, 'language_order_by'=>1,'both_language'=>1,'en_name' => 'cousin','ar_name' => 'cousin','en_description' => 'cousin','ar_description' => 'الإسم','type' => 'dependents'),
             );
         foreach ($columnselect as $column) {
             ColumnSelect::create($column);

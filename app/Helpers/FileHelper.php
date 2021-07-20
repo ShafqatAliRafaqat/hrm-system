@@ -79,15 +79,16 @@ class FileHelper {
 
         $file_type = substr($img->mime,strpos($img->mime,'/')+1);
 
-        $result['name'] = $result['name'].str_random(15).'.'.$file_type;
+        $result['name'] = $result['name'].date('U').'.'.$file_type;
 
         $url = self::saveImage($img,'',1,$result);
 
-        return [
-            'url' => $url,
-            'file_type'=>$file_type,
-            'name' => $result['name'],
-        ];
+        return $url;
+        // return [
+        //     'url' => $url,
+        //     'file_type'=>$file_type,
+        //     'name' => $result['name'],
+        // ];
     }
 
     public static function saveImage($img,string $prefix, float $percentage,array $result){
@@ -102,8 +103,8 @@ class FileHelper {
         return $url;
     }
 
-    public static function deleteImages($media){
+    public static function deleteImages($url){
         
-        self::deleteFileIfNotDefault($media->url);
+        self::deleteFileIfNotDefault($url);
     }
 }

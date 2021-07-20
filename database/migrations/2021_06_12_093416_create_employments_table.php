@@ -43,8 +43,8 @@ class CreateEmploymentsTable extends Migration
             $table->string('contract_type',50)->nullable();
             $table->string('contract_family_flag',50)->nullable();
             $table->string('contract_no',50)->nullable();
-            $table->string('contract_duration',50);
-            $table->string('time_unit_duration',50);
+            $table->string('contract_duration',50)->nullable();
+            $table->string('time_unit_duration',50)->nullable();
             $table->string('termination_type',50)->nullable();
             $table->string('contract_created_by',100)->nullable();
             $table->string('terminated_by',100)->nullable();

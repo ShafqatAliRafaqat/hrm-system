@@ -45,19 +45,22 @@ class CityController extends Controller
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
             'region'    => 'required|max:50',
-            'ticket_value'=> 'required|numeric|max:5|min:0',
+            'ticket_value'=> 'nullable|numeric|max:5|min:0',
             'country_id' => 'required|exists:countries,id',
         ]);
 
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-
+        $oCity= City::where('country_id',$oInput['country_id'])->where('en_name',$oInput['en_name'])->orWhere('ar_name',$oInput['ar_name'])->first();
+        if($oCity){
+            return responseBuilder()->error(__('City Already entered!'), 400, false);
+        }
         $oCity = City::create([
             'en_name'  =>  $oInput['en_name'],
             'ar_name'  =>  $oInput['ar_name'],
             'region'  =>  $oInput['region'],
-            'ticket_value'  =>  $oInput['ticket_value'],
+            'ticket_value'  =>  $oInput['ticket_value']??0,
             'country_id'  =>  $oInput['country_id'],
             'created_at'    =>  Carbon::now()->toDateTimeString(),
             'updated_at'    =>  Carbon::now()->toDateTimeString(),
@@ -90,12 +93,16 @@ class CityController extends Controller
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
             'region'    => 'required|max:50',
-            'ticket_value'=> 'required|numeric|max:5|min:0',
+            'ticket_value'=> 'nullable|numeric|max:5|min:0',
             'country_id' => 'required|exists:countries,id',
         ]);
 
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
+        }
+        $oCity= City::where('id','!=',$id)->where('country_id',$oInput['country_id'])->where('en_name',$oInput['en_name'])->orWhere('ar_name',$oInput['ar_name'])->first();
+        if($oCity){
+            return responseBuilder()->error(__('City Already entered!'), 400, false);
         }
         $oCity = City::findOrFail($id); 
 
@@ -103,7 +110,7 @@ class CityController extends Controller
             'en_name'  =>  $oInput['en_name'],
             'ar_name'  =>  $oInput['ar_name'],
             'region'  =>  $oInput['region'],
-            'ticket_value'  =>  $oInput['ticket_value'],
+            'ticket_value'  =>  $oInput['ticket_value']?? 0,
             'country_id'  =>  $oInput['country_id'],
             'updated_at'    =>  Carbon::now()->toDateTimeString(),
         ]);

@@ -571,6 +571,95 @@ return [
             'Deleted Employee Deducations',                   //5
             'Restore Employee Deducations',                    //6
             'Permanent Delete Employee Deducation',           //7
+        ],
     ],
-],
+    49 =>[   'title'=>"Employee Evaluations",
+    'menu' =>  [
+            'All Employee Evaluations',                       //0
+            'Create Employee Evaluation',                    //1
+            'Show Employee Evaluation detail',               //2
+            'Update Employee Evaluation',                    //3
+            'Delete Employee Evaluations',                    //4
+        ],
+    ],
+    50 =>[   'title'=>"Employee Evaluations",
+    'menu' =>  [
+            'All Employee Evaluation Results',                       //0
+            'Create Employee Evaluation Result',                    //1
+            'Show Employee Evaluation Result detail',               //2
+            'Delete Employee Evaluation Result',                    //4
+        ],
+    ],
+    51 =>[   'title'=>"Employee Modifications",
+    'menu' =>  [
+            'All Employee Modification',                       //0
+            'Create Employee Modification',                    //1
+            'Show Employee Modification detail',               //2
+            'Delete Employee Modification',                    //4
+        ],
+    ],
+    52 =>[   'title'=>"Employee Trainings",
+    'menu' =>  [
+            'All Employee Training',                       //0
+            'Create Employee Training',                    //1
+            'Show Employee Training detail',               //2
+            'Delete Employee Training',                    //4
+        ],
+    ],
+    53 =>[   'title'=>"Employee Experiences",
+    'menu' =>  [
+            'All Employee Experience',                       //0
+            'Create Employee Experience',                    //1
+            'Show Employee Experience detail',               //2
+            'Delete Employee Experience',                    //4
+        ],
+    ],
+    54 =>[   'title'=>"Employee Addresses",
+    'menu' =>  [
+            'All Employee Addresses',                       //0
+            'Create Employee Addresses',                    //1
+            'Show Employee Addresses detail',               //2
+            'Delete Employee Addresses',                    //4
+        ],
+    ],
+    55 =>[   'title'=>"Employee Dependents",
+    'menu' =>  [
+            'All Employee Dependents',                       //0
+            'Create Employee Dependents',                    //1
+            'Show Employee Dependents detail',               //2
+            'Delete Employee Dependents',                    //4
+        ],
+    ],
+    56 =>[   'title'=>"Employee Notes",
+    'menu' =>  [
+            'All Employee Notes',                       //0
+            'Create Employee Notes',                    //1
+            'Show Employee Notes detail',               //2
+            'Delete Employee Notes',                    //4
+        ],
+    ],
+    57 =>[   'title'=>"Employee Documents",
+    'menu' =>  [
+            'All Employee Documents',                       //0
+            'Create Employee Documents',                    //1
+            'Show Employee Documents detail',               //2
+            'Delete Employee Documents',                    //4
+        ],
+    ],
+    58 =>[   'title'=>"Employee Document Paths",
+    'menu' =>  [
+            'All Employee Document Paths',                       //0
+            'Create Employee Document Paths',                    //1
+            'Show Employee Document Paths detail',               //2
+            'Delete Employee Document Paths',                    //4
+        ],
+    ],
+    59 =>[   'title'=>"Employee Leaves",
+    'menu' =>  [
+            'All Employee Leaves',                       //0
+            'Create Employee Leaves',                    //1
+            'Show Employee Leaves detail',               //2
+            'Delete Employee Leaves',                    //4
+        ],
+    ],
 ];

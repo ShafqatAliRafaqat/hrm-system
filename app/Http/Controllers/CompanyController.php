@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Helpers\QB;
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Helpers\FileHelper;
 
 class CompanyController extends Controller
 {
@@ -49,16 +50,23 @@ class CompanyController extends Controller
             'en_register_name'   => 'required|max:100',
             'er_register_name'   => 'required|max:100',
             'incorporation_date'   => 'required|date',
-            'incorporation_date_hijri'   => 'required|max:20',
+            'incorporation_date_hijri'   => 'nullable|max:20',
             'en_type_of_business'=> 'required|max:20',
             'ar_type_of_business'=> 'required|max:20',
-            'no_br'=> 'required|max:6',
+            'no_br'=> 'nullable|max:6',
         ]);
 
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-        
+        if(isset($request->logo)){
+            $logoExtension = $request->logo->extension();
+            if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
+                abort(400,"The logo must be a file of type: jpeg, jpg, png.");
+            }
+            $oPaths = FileHelper::saveImages($request->logo,'company_logo');
+        }
+
         $oCompany = Company::create([
             'en_name'           =>  $oInput['en_name'],
             'ar_name'           =>  $oInput['ar_name'],
@@ -68,7 +76,8 @@ class CompanyController extends Controller
             'incorporation_date_hijri' =>  $oInput['incorporation_date_hijri'],
             'en_type_of_business'=>  $oInput['en_type_of_business'],
             'ar_type_of_business'=>  $oInput['ar_type_of_business'],
-            'no_br'             =>  $oInput['no_br'],
+            'no_br'             =>  $oInput['no_br']?? 0,
+            'logo'              =>  isset($oPaths)? $oPaths : '',
             'created_by'        =>  Auth::user()->id,
             'updated_by'        =>  Auth::user()->id,
             'created_at'        =>  Carbon::now()->toDateTimeString(),
@@ -104,10 +113,10 @@ class CompanyController extends Controller
             'en_register_name'   => 'required|max:100',
             'er_register_name'   => 'required|max:100',
             'incorporation_date'   => 'required|date',
-            'incorporation_date_hijri'   => 'required|max:20',
+            'incorporation_date_hijri'   => 'nullable|max:20',
             'en_type_of_business'=> 'required|max:20',
             'ar_type_of_business'=> 'required|max:20',
-            'no_br'=> 'required|max:6',
+            'no_br'=> 'nullable|max:6',
         ]);
 
         if($oValidator->fails()){
@@ -115,6 +124,16 @@ class CompanyController extends Controller
         }
 
         $oCompany = Company::findOrFail($id); 
+        $oPaths = $oCompany->logo;
+        if(isset($request->logo)){
+
+            FileHelper::deleteImages($oPaths);
+            $logoExtension = $request->logo->extension();
+            if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
+                abort(400,"The logo must be a file of type: jpeg, jpg, png.");
+            }
+            $oPaths = FileHelper::saveImages($request->logo,'company_logo');
+        }
 
         $oCompanys = $oCompany->update([
             'en_name'           =>  $oInput['en_name'],
@@ -125,7 +144,8 @@ class CompanyController extends Controller
             'incorporation_date_hijri'=>  $oInput['incorporation_date_hijri'],
             'en_type_of_business'=>  $oInput['en_type_of_business'],
             'ar_type_of_business'=>  $oInput['ar_type_of_business'],
-            'no_br'             =>  $oInput['no_br'],
+            'no_br'             =>  $oInput['no_br']?? 0,
+            'logo'              =>  $oPaths,
             'updated_by'        =>  Auth::user()->id,
             'updated_at'        =>  Carbon::now()->toDateTimeString(),
         ]);

@@ -20,7 +20,7 @@ class CountryController extends Controller
     {
         $oInput = $request->all();
 
-        $oQb = Country::orderByDesc('updated_at');
+        $oQb = Country::orderBy('en_name','ASC');
         $oQb = QB::where($oInput,"id",$oQb);
         $oQb = QB::whereLike($oInput,"en_name",$oQb);
         $oQb = QB::whereLike($oInput,"ar_name",$oQb);
@@ -54,6 +54,14 @@ class CountryController extends Controller
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         } 
+        $oCountry= Country::where('code',$oInput['code'])->first();
+        if($oCountry){
+            return responseBuilder()->error(__('Country Code Already entered!'), 400, false);
+        }
+       
+        $query = "SELECT setval(pg_get_serial_sequence('countries', 'id'), coalesce(max(id)+1, 1), false) FROM countries;";
+        $db = DB::select($query);
+
         $oCountry = Country::create([
             'en_name'           =>  $oInput['en_name'],
             'ar_name'           =>  $oInput['ar_name'],
@@ -200,7 +208,7 @@ class CountryController extends Controller
     // All County List
     public function allCountries()
     {
-        $oCountry = Country::all();
+        $oCountry = Country::orderBy('en_name','ASC')->get();
         
         $oResponse = responseBuilder()->success(__('List of All Countries'), $oCountry, false);
         $this->urlRec(1, 8, $oResponse); 

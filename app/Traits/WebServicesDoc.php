@@ -102,17 +102,5 @@ trait WebServicesDoc {
             }
         }
         $response = $responseSample->getContent();
-            
-        // AuditTrail::create([
-        //     'activity_title' => $title, 
-        //     'request_header' => json_encode($headerParams),
-        //     'request_body' => json_encode($bodyParams),
-        //     'request_method' => $requestType,
-        //     'request_url' => $url, 
-        //     'response_data' => $response,
-        //     'ip_address' => request()->ip(), 
-        //     'created_at' => now(), 
-        //     'created_by' => $createdBy
-        // ]);
     }
 }
