@@ -193,7 +193,7 @@ class CompanyController extends Controller
     // Get soft deleted data
     public function deleted()
     {
-        $oCompany = Company::onlyTrashed()->with(['city'])->paginate(10);
+        $oCompany = Company::onlyTrashed()->with(['createdBy','updatedBy','deletedBy'])->paginate(10);
         
         $oResponse = responseBuilder()->success(__('message.general.deleted',["mod"=>"Company"]), $oCompany, false);
         $this->urlRec(24, 5, $oResponse); 

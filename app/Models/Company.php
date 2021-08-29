@@ -42,13 +42,13 @@ class Company extends Model
         return $this->hasMany('App\Models\CompanySchedule');
     }
     public function companyDepartmentSection(){
-        return $this->hasMany('App\Models\CompanyDepartmentSection');
+        return $this->hasMany('App\Models\DepartmentSection');
     }
     public function companyEffectivityPreference(){
-        return $this->hasMany('App\Models\CompanyEffectivityPreference');
+        return $this->hasMany('App\Models\EffectivityPreference');
     }
     public function companyEmployee(){
-        return $this->hasMany('App\Models\CompanyEmployee');
+        return $this->hasMany('App\Models\Employee');
     }
     public function createdBy(){
         return $this->belongsTo('App\Models\User','created_by','id')->select('id','name','email');
