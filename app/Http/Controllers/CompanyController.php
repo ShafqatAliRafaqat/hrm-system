@@ -47,24 +47,26 @@ class CompanyController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'en_register_name'   => 'required|max:100',
-            'er_register_name'   => 'required|max:100',
-            'incorporation_date'   => 'required|date',
+            'en_register_name'   => 'nullable|max:100',
+            'er_register_name'   => 'nullable|max:100',
+            'incorporation_date'   => 'nullable|date',
             'incorporation_date_hijri'   => 'nullable|max:20',
-            'en_type_of_business'=> 'required|max:20',
-            'ar_type_of_business'=> 'required|max:20',
+            'en_type_of_business'=> 'nullable|max:20',
+            'ar_type_of_business'=> 'nullable|max:20',
             'no_br'=> 'nullable|max:6',
         ]);
 
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-        if(isset($request->logo)){
-            $logoExtension = $request->logo->extension();
-            if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
-                abort(400,"The logo must be a file of type: jpeg, jpg, png.");
+        if($request->hasFile('logo')){
+            if(isset($request->logo)){
+                $logoExtension = $request->logo->extension();
+                if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
+                    abort(400,"The logo must be a file of type: jpeg, jpg, png.");
+                }
+                $oPaths = FileHelper::saveImages($request->logo,'company_logo');
             }
-            $oPaths = FileHelper::saveImages($request->logo,'company_logo');
         }
 
         $oCompany = Company::create([
@@ -110,12 +112,12 @@ class CompanyController extends Controller
         $oValidator = Validator::make($oInput,[
             'en_name'   => 'required|max:50',
             'ar_name'   => 'required|max:50',
-            'en_register_name'   => 'required|max:100',
-            'er_register_name'   => 'required|max:100',
-            'incorporation_date'   => 'required|date',
+            'en_register_name'   => 'nullable|max:100',
+            'er_register_name'   => 'nullable|max:100',
+            'incorporation_date'   => 'nullable|date',
             'incorporation_date_hijri'   => 'nullable|max:20',
-            'en_type_of_business'=> 'required|max:20',
-            'ar_type_of_business'=> 'required|max:20',
+            'en_type_of_business'=> 'nullable|max:20',
+            'ar_type_of_business'=> 'nullable|max:20',
             'no_br'=> 'nullable|max:6',
         ]);
 
@@ -125,13 +127,13 @@ class CompanyController extends Controller
 
         $oCompany = Company::findOrFail($id); 
         $oPaths = $oCompany->logo;
-        if(isset($request->logo)){
+        if(isset($request->logo) && $request->logo != "null"){
 
-            FileHelper::deleteImages($oPaths);
             $logoExtension = $request->logo->extension();
             if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
                 abort(400,"The logo must be a file of type: jpeg, jpg, png.");
             }
+            FileHelper::deleteImages($oPaths);
             $oPaths = FileHelper::saveImages($request->logo,'company_logo');
         }
 

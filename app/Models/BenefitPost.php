@@ -9,7 +9,7 @@ class BenefitPost extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-
+    
     public function companyId(){
         return $this->belongsTo('App\Models\Company','company_id','id');
     }

@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
     Route::group(['middleware' => 'auth:api' ], function () {
         Route::get('logout', 'APILoginController@logout')->name('logout');
+        Route::post('update_user/{id}', 'APILoginController@updateUser');
         Route::delete('delete_user/{id}', 'APILoginController@deleteUser');
 
         // Countries

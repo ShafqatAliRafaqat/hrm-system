@@ -10,6 +10,26 @@ class CompanyDepartment extends Model
 {
     use HasFactory, SoftDeletes;
     protected $guarded = ['id'];
+
+    public static function boot() {
+        
+        parent::boot();
+
+        static::deleting(function($company) {
+             $company->departmentSection()->delete();
+             $company->employee()->delete();
+             $company->legalDocument()->delete();
+        });
+    }
+    public function departmentSection(){
+        return $this->hasMany('App\Models\DepartmentSection');
+    }
+    public function employee(){
+        return $this->hasMany('App\Models\Employee');
+    }
+    public function legalDocument(){
+        return $this->hasMany('App\Models\LegalDocument');
+    }
     public function companyId(){
         return $this->belongsTo('App\Models\Company','company_id','id');
     }

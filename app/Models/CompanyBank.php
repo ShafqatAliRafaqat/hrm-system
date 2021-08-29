@@ -14,10 +14,10 @@ class CompanyBank extends Model
         return $this->belongsTo('App\Models\Company','company_id','id');
     }
     public function countryId(){
-        return $this->belongsTo('App\Models\Country','country_id','id');
+        return $this->belongsTo('App\Models\Country','country_id','id')->withTrashed();
     }
     public function cityId(){
-        return $this->belongsTo('App\Models\City','city_id','id');
+        return $this->belongsTo('App\Models\City','city_id','id')->withTrashed();
     }
     public function branchId(){
         return $this->belongsTo('App\Models\CompanyBranch','branch_id','id');

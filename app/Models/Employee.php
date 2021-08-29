@@ -10,6 +10,71 @@ class Employee extends Model
 {
     use HasFactory ,SoftDeletes;
     protected $guarded = ['id'];
+
+    public static function boot() {
+        
+        parent::boot();
+
+        static::deleting(function($company) {
+             $company->employeeAddree()->delete();
+             $company->employeeDeducation()->delete();
+             $company->employeeDependent()->delete();
+             $company->employeeDocment()->delete();
+             $company->employeeDocmentPath()->delete();
+             $company->employeeEarning()->delete();
+             $company->employeeEvaluation()->delete();
+             $company->employeeEvaluationResult()->delete();
+             $company->employeeExperience()->delete();
+             $company->employeeLeave()->delete();
+             $company->employeeModification()->delete();
+             $company->employeeNote()->delete();
+             $company->employeeTraining()->delete();
+             $company->employeeExperience()->delete();
+             $company->employeeEmployment()->delete();
+        });
+    }
+    public function employeeAddree(){
+        return $this->hasMany('App\Models\EmployeeAddree');
+    }
+    public function employeeDeducation(){
+        return $this->hasMany('App\Models\EmployeeDeducation');
+    }
+    public function employeeDependent(){
+        return $this->hasMany('App\Models\EmployeeDependent');
+    }
+    public function employeeDocment(){
+        return $this->hasMany('App\Models\EmployeeDocment');
+    }
+    public function employeeDocmentPath(){
+        return $this->hasMany('App\Models\EmployeeDocmentPath');
+    }
+    public function employeeEarning(){
+        return $this->hasMany('App\Models\EmployeeEarning');
+    }
+    public function employeeEvaluation(){
+        return $this->hasMany('App\Models\EmployeeEvaluation');
+    }
+    public function employeeEvaluationResult(){
+        return $this->hasMany('App\Models\EmployeeEvaluationResult');
+    }
+    public function employeeExperience(){
+        return $this->hasMany('App\Models\EmployeeExperience');
+    }
+    public function employeeLeave(){
+        return $this->hasMany('App\Models\EmployeeLeave');
+    }
+    public function employeeModification(){
+        return $this->hasMany('App\Models\EmployeeModification');
+    }
+    public function employeeNote(){
+        return $this->hasMany('App\Models\EmployeeNote');
+    }
+    public function employeeTraining(){
+        return $this->hasMany('App\Models\EmployeeTraining');
+    }
+    public function employeeEmployment(){
+        return $this->hasMany('App\Models\Employment');
+    }
     public function companyId(){
         return $this->belongsTo('App\Models\Company','company_id','id');
     }
@@ -29,10 +94,10 @@ class Employee extends Model
         return $this->belongsTo('App\Models\CostCenter','cost_center_id','id');
     }
     public function countryId(){
-        return $this->belongsTo('App\Models\Country','country_id','id');
+        return $this->belongsTo('App\Models\Country','country_id','id')->withTrashed();
     }
     public function cityId(){
-        return $this->belongsTo('App\Models\City','city_id','id');
+        return $this->belongsTo('App\Models\City','city_id','id')->withTrashed();
     }
     public function createdBy(){
         return $this->belongsTo('App\Models\User','created_by','id')->select('id','name','email');

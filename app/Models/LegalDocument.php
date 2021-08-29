@@ -18,7 +18,7 @@ class LegalDocument extends Model
         return $this->belongsTo('App\Models\CompanyDepartment','department_id','id');
     }
     public function placeIssued(){
-        return $this->belongsTo('App\Models\City','place_issued','id');
+        return $this->belongsTo('App\Models\City','place_issued','id')->withTrashed();
     }
     public function branchId(){
         return $this->belongsTo('App\Models\CompanyBranch','branch_id','id');

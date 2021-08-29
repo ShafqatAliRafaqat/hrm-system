@@ -17,7 +17,7 @@ class EmployeeDocument extends Model
         return $this->belongsTo('App\Models\DocumentType','document_type_id','id');
     }
     public function cityId(){
-        return $this->belongsTo('App\Models\City','city_id','id');
+        return $this->belongsTo('App\Models\City','city_id','id')->withTrashed();
     }
     public function countryId(){
         return $this->belongsTo('App\Models\Country','country_id','id');

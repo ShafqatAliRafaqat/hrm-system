@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -84,7 +85,31 @@ class APILoginController extends Controller {
         $this->urlRec(0, 1, $oResponse);
         return $oResponse;
     }
+    public function updateUser(Request $request, $id){
 
+        $input = $request->all();
+
+        $validator = Validator::make($input,[
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users,id',$id,
+            // 'role_id' => 'required|exists:roles,id',
+            'password' => 'nullable|string|min:6'
+        ]);
+
+        if($validator->fails()){
+            return responseBuilder()->error(__($validator->errors()->first()), 400, false);
+        }
+        $user = DB::table('users')->where('id', $id)->first();
+        $oUser = User::where('id', $id)->update([
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'password' => isset($input['password']) ?bcrypt($input['password']): $user->password
+        ]);
+        $oUser = DB::table('users')->where('id', $id)->first();
+        $oResponse = responseBuilder()->success(__('User Updated Successfully',["mod"=>"User"]), $oUser, true);
+        
+        return $oResponse;
+    }
     public function logout()
     {
         $user = Auth::user()->token();

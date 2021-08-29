@@ -52,7 +52,7 @@ class CityController extends Controller
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-        $oCity= City::where('country_id',$oInput['country_id'])->where('en_name',$oInput['en_name'])->orWhere('ar_name',$oInput['ar_name'])->first();
+        $oCity= City::where('country_id',$oInput['country_id'])->where('en_name',$oInput['en_name'])->first();
         if($oCity){
             return responseBuilder()->error(__('City Already entered!'), 400, false);
         }
@@ -100,7 +100,7 @@ class CityController extends Controller
         if($oValidator->fails()){
             return responseBuilder()->error(__($oValidator->errors()->first()), 400, false);
         }
-        $oCity= City::where('id','!=',$id)->where('country_id',$oInput['country_id'])->where('en_name',$oInput['en_name'])->orWhere('ar_name',$oInput['ar_name'])->first();
+        $oCity= City::where('id','!=',$id)->where('country_id',$oInput['country_id'])->where('en_name',$oInput['en_name'])->first();
         if($oCity){
             return responseBuilder()->error(__('City Already entered!'), 400, false);
         }

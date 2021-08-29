@@ -21,7 +21,7 @@ class Employment extends Model
         return $this->belongsTo('App\Models\Employee','employee_id','id');
     }
     public function cityId(){
-        return $this->belongsTo('App\Models\City','city_id','id');
+        return $this->belongsTo('App\Models\City','city_id','id')->withTrashed();
     }
     public function createdBy(){
         return $this->belongsTo('App\Models\User','created_by','id')->select('id','name','email');
