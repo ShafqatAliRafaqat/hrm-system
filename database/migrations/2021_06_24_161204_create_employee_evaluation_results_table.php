@@ -29,7 +29,7 @@ class CreateEmployeeEvaluationResultsTable extends Migration
             $table->string('grade',20)->nullable();
             $table->string('percentage',20)->nullable();
             $table->string('score',20)->nullable();
-            $table->string('evaluation_ids')->nullable();
+            $table->text('evaluation_ids')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();
