@@ -127,14 +127,24 @@ class CompanyController extends Controller
 
         $oCompany = Company::findOrFail($id); 
         $oPaths = $oCompany->logo;
-        if(isset($request->logo) && $request->logo != "null"){
-
+        if($request->hasFile('logo')){
+            
             $logoExtension = $request->logo->extension();
+        
             if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
                 abort(400,"The logo must be a file of type: jpeg, jpg, png.");
             }
+        
             FileHelper::deleteImages($oPaths);
             $oPaths = FileHelper::saveImages($request->logo,'company_logo');
+        
+            
+        }elseif($request->logo == $oPaths){
+            $oPaths;
+        }else{
+
+            FileHelper::deleteImages($oPaths);
+            $oPaths = null;
         }
 
         $oCompanys = $oCompany->update([

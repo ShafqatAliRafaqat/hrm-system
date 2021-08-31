@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FileHelper;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -91,7 +92,7 @@ class APILoginController extends Controller {
 
         $validator = Validator::make($input,[
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,id',$id,
+            'email' => 'required|email|unique:users,email',$id,
             // 'role_id' => 'required|exists:roles,id',
             'password' => 'nullable|string|min:6'
         ]);
@@ -99,10 +100,30 @@ class APILoginController extends Controller {
         if($validator->fails()){
             return responseBuilder()->error(__($validator->errors()->first()), 400, false);
         }
-        $user = DB::table('users')->where('id', $id)->first();
+       
+        $user = DB::table('users')->where('id', $id)->where('deleted_at',null)->first();
+        
+        if(!$user){
+            return responseBuilder()->error('User not found', 400, false);
+        }
+        $oPaths = $user->image;
+
+        if($request->hasFile('image') && $request->image != "null"){
+
+            $logoExtension = $request->image->extension();
+            if($logoExtension != "png" && $logoExtension != "jpg" && $logoExtension != "jpeg"){
+                abort(400,"The logo must be a file of type: jpeg, jpg, png.");
+            }
+            FileHelper::deleteImages($oPaths);
+            $oPaths = FileHelper::saveImages($request->image,'user_profile');
+        }else{
+            FileHelper::deleteImages($oPaths);
+            $oPaths = null;
+        }
         $oUser = User::where('id', $id)->update([
             'name' => $input['name'],
             'email' => $input['email'],
+            'image' => $oPaths,
             'password' => isset($input['password']) ?bcrypt($input['password']): $user->password
         ]);
         $oUser = DB::table('users')->where('id', $id)->first();
