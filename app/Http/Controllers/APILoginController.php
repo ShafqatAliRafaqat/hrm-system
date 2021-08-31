@@ -92,7 +92,7 @@ class APILoginController extends Controller {
 
         $validator = Validator::make($input,[
             'name' => 'required|max:255',
-            'email' => 'required|email|unique:users,email',$id,
+            'email' => 'required|email|unique:users,email,'.$id,
             // 'role_id' => 'required|exists:roles,id',
             'password' => 'nullable|string|min:6'
         ]);
